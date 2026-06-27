@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HardImpact\Craft\Setup\App;
 
 use HardImpact\Craft\Setup\SetupAuth;
@@ -24,11 +26,10 @@ class RunSetupAuthTask extends Task
      */
     public function run(): bool
     {
-        $this->info('Running Auth scaffolder...');
+        $this->info('Running authentication setup...');
 
         $SetupAuth = new SetupAuth($this->filesystem);
 
-        // Set the command if available so the auth scaffolder can output messages
         if ($this->command) {
             $SetupAuth->setCommand($this->command);
         }
@@ -37,16 +38,16 @@ class RunSetupAuthTask extends Task
             $exitCode = $SetupAuth->setup();
 
             if ($exitCode === 0) {
-                $this->info('Auth scaffolder completed successfully.');
+                $this->info('Authentication setup completed successfully.');
 
                 return true;
             } else {
-                $this->error('Auth scaffolder failed with exit code: '.$exitCode);
+                $this->error('Authentication setup failed with exit code: '.$exitCode);
 
                 return false;
             }
         } catch (\Exception $e) {
-            $this->error('Auth scaffolder failed: '.$e->getMessage());
+            $this->error('Authentication setup failed: '.$e->getMessage());
 
             return false;
         }
@@ -57,6 +58,6 @@ class RunSetupAuthTask extends Task
      */
     public function description(): string
     {
-        return 'Running Auth scaffolder...';
+        return 'Running authentication setup';
     }
 }

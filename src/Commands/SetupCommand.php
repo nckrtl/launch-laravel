@@ -1,13 +1,25 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HardImpact\Craft\Commands;
 
+use HardImpact\Craft\Setup\SetupApp;
+use HardImpact\Craft\Setup\SetupFilament;
+use HardImpact\Craft\Setup\SetupInterface;
+use HardImpact\Craft\Setup\SetupMultilanguage;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupCommand extends Command
 {
-    protected $signature = 'craft:setup {type : The type of setup to run (auth, dashboard, app, cms, multilanguage, task-tracking)}';
+    private const array SETUPS = [
+        'app' => SetupApp::class,
+        'filament' => SetupFilament::class,
+        'multilanguage' => SetupMultilanguage::class,
+    ];
+
+    protected $signature = 'craft:setup {type : The type of setup to run (app, filament, multilanguage)}';
 
     protected $description = 'Setup Craft features';
 
@@ -30,11 +42,10 @@ class SetupCommand extends Command
         $this->filesystem = $filesystem;
     }
 
-    public function handle()
+    public function handle(): int
     {
         $type = $this->argument('type');
 
-        // Get the appropriate setup
         $setup = $this->resolveSetup($type);
 
         if (! $setup) {
@@ -50,15 +61,14 @@ class SetupCommand extends Command
         return $setup->setup();
     }
 
-    protected function resolveSetup($type)
+    protected function resolveSetup(string $type): ?SetupInterface
     {
-        $setupClass = 'HardImpact\\Craft\\Setup\\Setup'.ucfirst($type);
+        $setupClass = self::SETUPS[$type] ?? null;
 
-        if (class_exists($setupClass)) {
-            // Explicitly create the setup with a Filesystem instance
-            return new $setupClass($this->filesystem);
+        if ($setupClass === null) {
+            return null;
         }
 
-        return null;
+        return new $setupClass($this->filesystem);
     }
 }

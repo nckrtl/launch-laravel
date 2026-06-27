@@ -1,20 +1,20 @@
 # Craft Laravel Package
 
-Companion scaffolding package for [craft-starterkit](https://github.com/hardimpactdev/craft-starterkit). Provides commands to set up authentication, dashboard, CMS (Filament), and multi-language support.
+Companion scaffolding package for [craft-starterkit](https://github.com/hardimpactdev/craft-starterkit). Provides commands to set up the app scaffold, Filament admin panel, and multi-language support.
 
 ## Quick Reference: Scaffolding Commands
 
 | Command | What It Sets Up |
 |---------|-----------------|
 | `php artisan craft:setup app` | Auth + Dashboard + Settings (recommended for most apps) |
-| `php artisan craft:setup cms` | Auth + Filament CMS admin panel |
+| `php artisan craft:setup filament` | Auth + Filament admin panel |
 | `php artisan craft:setup multilanguage` | Translation files and i18n support |
 
 **After scaffolding:**
 ```bash
 bun install && bun run build
 php artisan migrate
-php artisan make:filament-user  # Only for CMS setup
+php artisan make:filament-user  # Only for Filament setup
 ```
 
 ## Laravel Boost Integration
@@ -44,11 +44,12 @@ The setup system consists of:
 src/
 ├── Commands/
 │   └── SetupCommand.php
-└── Setups/
-    ├── ScaffolderInterface.php
+└── Setup/
+    ├── SetupInterface.php
     ├── Setup.php (abstract base class)
-    ├── SetupAuth.php
-    ├── CmsScaffolder.php
+    ├── SetupApp.php
+    ├── SetupFilament.php
+    ├── SetupMultilanguage.php
     ├── Tasks/
     │   ├── TaskInterface.php
     │   └── Task.php (abstract base class)
@@ -59,7 +60,7 @@ src/
     └── Cms/
         ├── InstallFilamentComposerPackageTask.php
         ├── CopyCmsFilesTask.php
-        └── ... (other cms tasks)
+        └── ... (other Filament tasks)
 ```
 
 ### Creating a New Setup
@@ -337,16 +338,7 @@ resources/stubs/yourfeature/
 
 ### Using the Setup
 
-Once created, your setup will automatically be available through the setup command:
-
-```bash
-php artisan craft:setup yourfeature
-```
-
-The SetupCommand uses a naming convention to resolve Setups:
-
--   Command argument: `yourfeature`
--   Resolved class: `HardImpact\Craft\Setup\YourfeatureScaffolder`
+Public setup commands are intentionally limited to `app`, `filament`, and `multilanguage`. If a new setup should become public, add it explicitly to `SetupCommand::SETUPS`.
 
 ### Best Practices
 

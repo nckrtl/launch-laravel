@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HardImpact\Craft\Setup;
 
 use HardImpact\Craft\Setup\App\CopyAppClassTask;
@@ -18,7 +20,7 @@ class SetupApp extends Setup
      * The tasks to run.
      *
      * Sets up a full application with authentication, dashboard, and settings.
-     * Does NOT include CMS - run `craft:setup cms` separately if needed.
+     * Does NOT include Filament - run `craft:setup filament` separately if needed.
      *
      * @var array
      */

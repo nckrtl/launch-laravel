@@ -1,6 +1,6 @@
 ## Craft Laravel
 
-Companion scaffolding package for [craft-starterkit](https://github.com/hardimpactdev/craft-starterkit). Provides commands to set up authentication, dashboard, CMS (Filament), and multi-language support.
+Companion scaffolding package for [craft-starterkit](https://github.com/hardimpactdev/craft-starterkit). Provides commands to set up the app scaffold, Filament admin panel, and multi-language support.
 
 ### Quick Decision Guide
 
@@ -11,9 +11,9 @@ Use this to determine which setup command to run:
 | "Add authentication" | `php artisan craft:setup app` | `app` includes auth + dashboard + settings |
 | "Add a dashboard" | `php artisan craft:setup app` | `app` includes auth + dashboard + settings |
 | "Set up the app" | `php artisan craft:setup app` | Complete frontend application stack |
-| "Add a CMS" | `php artisan craft:setup cms` | Filament admin panel with auth |
-| "Add admin panel" | `php artisan craft:setup cms` | Filament admin panel with auth |
-| "Set up everything" | Run both `app` then `cms` | Full stack: auth + dashboard + CMS |
+| "Add a CMS" | `php artisan craft:setup filament` | Filament admin panel with auth |
+| "Add admin panel" | `php artisan craft:setup filament` | Filament admin panel with auth |
+| "Set up everything" | Run both `app` then `filament` | Full stack: auth + dashboard + Filament |
 | "Add translations" | `php artisan craft:setup multilanguage` | i18n support |
 
 ### Available Commands
@@ -21,10 +21,8 @@ Use this to determine which setup command to run:
 | Command | What It Sets Up |
 |---------|-----------------|
 | `php artisan craft:setup app` | Auth + Dashboard + Settings (recommended for most apps) |
-| `php artisan craft:setup cms` | Auth + Filament CMS admin panel |
+| `php artisan craft:setup filament` | Auth + Filament admin panel |
 | `php artisan craft:setup multilanguage` | Translation files and i18n support |
-| `php artisan craft:setup auth` | Auth only (use `app` instead unless building custom dashboard) |
-| `php artisan craft:setup dashboard` | Dashboard only (requires auth first, use `app` instead) |
 
 ### Complete Setup Workflows
 
@@ -44,12 +42,12 @@ php artisan migrate
 </code-snippet>
 @endverbatim
 
-#### Application with CMS Admin Panel
+#### Application with Filament Admin Panel
 
 @verbatim
-<code-snippet name="Setup application with CMS" lang="bash">
-# Run the CMS scaffolder (includes auth)
-php artisan craft:setup cms
+<code-snippet name="Setup application with Filament" lang="bash">
+# Run the Filament scaffolder (includes auth)
+php artisan craft:setup filament
 
 # Install dependencies and build
 bun install
@@ -63,15 +61,15 @@ php artisan make:filament-user
 </code-snippet>
 @endverbatim
 
-#### Full Stack (Dashboard + CMS)
+#### Full Stack (Dashboard + Filament)
 
 @verbatim
-<code-snippet name="Setup complete stack with dashboard and CMS" lang="bash">
+<code-snippet name="Setup complete stack with dashboard and Filament" lang="bash">
 # Run app first (auth + dashboard)
 php artisan craft:setup app
 
-# Then add CMS (Filament admin panel)
-php artisan craft:setup cms
+# Then add Filament admin panel
+php artisan craft:setup filament
 
 # Install dependencies and build
 bun install
@@ -107,7 +105,7 @@ php artisan craft:setup multilanguage
 - `tests/Feature/Settings/*` - Settings tests
 - Database migrations for users table
 
-#### CMS Setup
+#### Filament Setup
 - Everything from Auth setup (controllers, views, tests)
 - `filament/filament:^5.2` Composer package
 - `app/Filament/*` - Filament resources and pages
@@ -195,6 +193,6 @@ To disable a specific default, set it to `false` in `config/laravel.php`:
 
 1. **Always run migrations** after any setup that includes auth
 2. **Always run `bun install && bun run build`** after scaffolding
-3. **For CMS**, you must create an admin user with `php artisan make:filament-user`
+3. **For Filament**, you must create an admin user with `php artisan make:filament-user`
 4. **Routes are auto-generated** via Waymaker - no manual route configuration needed
 5. **Setups are idempotent** - safe to run multiple times

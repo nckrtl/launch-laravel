@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace HardImpact\Craft\Setup;
 
 use HardImpact\Craft\Setup\App\CopyAppClassTask;
@@ -17,7 +19,7 @@ class SetupDashboard extends Setup
      * The tasks to run.
      *
      * Sets up dashboard and settings pages.
-     * Note: Requires auth to be set up first. Run `craft:setup auth` before this.
+     * Note: Requires authentication to be set up first.
      *
      * @var array
      */

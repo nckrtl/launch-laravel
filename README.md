@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/actions/workflow/status/hardimpactdev/craft-laravel/fix-php-code-style-issues.yml?branch=main&label=code%20style&style=flat-square)](https://github.com/hardimpactdev/craft-laravel/actions?query=workflow%3A"Fix+PHP+code+style+issues"+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/hardimpactdev/craft-laravel.svg?style=flat-square)](https://packagist.org/packages/hardimpactdev/craft-laravel)
 
-Companion scaffolding package for [craft-starterkit](https://github.com/hardimpactdev/craft-starterkit). Provides commands to rapidly set up authentication, dashboard, settings, CMS (Filament), and multi-language support.
+Companion scaffolding package for [craft-starterkit](https://github.com/hardimpactdev/craft-starterkit). Provides commands to rapidly set up the app scaffold, Filament admin panel, and multi-language support.
 
 ## Support us
 
@@ -60,68 +60,30 @@ This scaffolder includes:
 -   ✅ HandleInertiaRequests middleware
 -   ✅ TypeScript type definitions
 -   ✅ Feature tests
--   ✅ Full authentication system (runs Auth scaffolder)
+-   ✅ Full authentication system (runs internal auth setup)
 -   ✅ Automatic route generation
 
-**Note:** For CMS functionality, use `php artisan craft:setup cms` instead.
+**Note:** For Filament admin functionality, use `php artisan craft:setup filament` instead.
 
-#### 2. Auth Scaffolder
+#### 2. Filament Scaffolder
 
-Sets up a complete authentication system with login, registration, password reset, and email verification.
-
-```bash
-php artisan craft:setup auth
-```
-
-This scaffolder includes:
-
--   ✅ Authentication controllers with route attributes
--   ✅ Login request validation
--   ✅ Vue.js authentication pages
--   ✅ Authentication tests
--   ✅ User migration publishing
-
-**Note:** The auth scaffolder requires the App class to be present. If running standalone, ensure you have an App class or run the app scaffolder instead.
-
-#### 3. Dashboard Scaffolder
-
-Sets up dashboard and settings pages. Requires authentication to be set up first.
+Sets up a Filament admin panel with user management and authentication.
 
 ```bash
-php artisan craft:setup dashboard
+php artisan craft:setup filament
 ```
 
 This scaffolder includes:
 
 -   ✅ App class with redirect configuration
--   ✅ Dashboard controller and views
--   ✅ Settings pages (profile, password, appearance)
--   ✅ HandleInertiaRequests middleware
--   ✅ TypeScript type definitions
--   ✅ Feature tests
--   ✅ Automatic route generation
-
-**Note:** Run `php artisan craft:setup auth` first, or use `php artisan craft:setup app` which includes both.
-
-#### 4. CMS Scaffolder
-
-Sets up Filament CMS with user management and authentication.
-
-```bash
-php artisan craft:setup cms
-```
-
-This scaffolder includes:
-
--   ✅ App class with redirect configuration
--   ✅ Full authentication system (runs Auth scaffolder)
+-   ✅ Full authentication system
 -   ✅ Filament package installation
 -   ✅ User resource for managing users
 -   ✅ Admin panel configuration
 -   ✅ Filament CSS build process
 -   ✅ Automatic route generation
 
-#### 5. Multilanguage Scaffolder
+#### 3. Multilanguage Scaffolder
 
 Sets up multi-language/i18n support with translation files.
 
@@ -174,7 +136,7 @@ tests/Feature/
     └── ProfileUpdateTest.php
 ```
 
-#### Auth Scaffolder creates:
+#### Authentication files included by app and filament:
 
 ```
 app/
@@ -236,20 +198,11 @@ php artisan migrate
 npm run dev # or bun dev
 ```
 
-#### Authentication Only
+#### Filament with Authentication
 
 ```bash
-# Run just the auth scaffolder
-php artisan craft:setup auth
-
-# Note: Requires App class to be present
-```
-
-#### CMS with Authentication
-
-```bash
-# Run the CMS scaffolder (includes auth)
-php artisan craft:setup cms
+# Run the Filament scaffolder (includes auth)
+php artisan craft:setup filament
 
 # Install frontend dependencies
 npm install # or bun install

@@ -4,6 +4,10 @@ declare(strict_types=1);
 
 use HardImpact\Craft\Commands\SetupCommand;
 use HardImpact\Craft\LaravelServiceProvider;
+use HardImpact\Craft\Setup\SetupApp;
+use HardImpact\Craft\Setup\SetupFilament;
+use HardImpact\Craft\Setup\SetupMultilanguage;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Http;
@@ -23,6 +27,21 @@ describe('package service provider', function () {
             ->artisan('craft:setup missing')
             ->expectsOutput("Setup for 'missing' not found.")
             ->assertExitCode(1);
+    });
+
+    it('only resolves the supported setup commands', function () {
+        $command = new SetupCommand(app(Filesystem::class));
+        $method = new ReflectionMethod($command, 'resolveSetup');
+
+        $resolve = fn (string $type): ?object => $method->invoke($command, $type);
+
+        expect($resolve('app'))->toBeInstanceOf(SetupApp::class)
+            ->and($resolve('filament'))->toBeInstanceOf(SetupFilament::class)
+            ->and($resolve('multilanguage'))->toBeInstanceOf(SetupMultilanguage::class);
+
+        foreach (['auth', 'dashboard', 'cms', 'task-tracking', 'missing'] as $type) {
+            expect($resolve($type))->toBeNull();
+        }
     });
 
     it('allows Inertia SSR requests while preventing other stray HTTP requests', function () {
