@@ -10,14 +10,14 @@ abstract class Task implements TaskInterface
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var Filesystem
      */
     protected $filesystem;
 
     /**
      * The command instance.
      *
-     * @var \Illuminate\Console\Command|null
+     * @var Command|null
      */
     protected $command;
 

@@ -4,17 +4,14 @@ import {
     Button,
     HeadingSmall,
     SettingsLayout,
-    AppSidebarLayout,
-    useAppNavigation,
 } from "@hardimpactdev/craft-ui";
+import AppLayout from "@/layouts/AppLayout.vue";
 import { ShieldBan, ShieldCheck, LoaderCircle } from "lucide-vue-next";
 import { onUnmounted, ref } from "vue";
 import TwoFactorRecoveryCodes from "@/components/TwoFactorRecoveryCodes.vue";
 import TwoFactorSetupModal from "@/components/TwoFactorSetupModal.vue";
 import { useTwoFactorAuth } from "@/composables/useTwoFactorAuth";
 import { type BreadcrumbItem } from "@/types";
-
-const appNav = useAppNavigation();
 
 interface Props {
     requiresConfirmation?: boolean;
@@ -86,7 +83,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <AppSidebarLayout :breadcrumbs="breadcrumbItems" v-bind="appNav">
+    <AppLayout :breadcrumbs="breadcrumbItems">
         <Head title="Two-Factor Authentication" />
 
         <h1 class="sr-only">Two-Factor Authentication Settings</h1>
@@ -172,5 +169,5 @@ onUnmounted(() => {
                 />
             </div>
         </SettingsLayout>
-    </AppSidebarLayout>
+    </AppLayout>
 </template>

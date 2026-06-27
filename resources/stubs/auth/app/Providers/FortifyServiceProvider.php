@@ -6,6 +6,7 @@ namespace {{namespace}}Providers;
 
 use {{namespace}}Actions\Fortify\CreateNewUser;
 use {{namespace}}Actions\Fortify\ResetUserPassword;
+use {{namespace}}Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -53,6 +54,9 @@ class FortifyServiceProvider extends ServiceProvider
             'canResetPassword' => Features::enabled(Features::resetPasswords()),
             'canRegister' => Features::enabled(Features::registration()),
             'status' => $request->session()->get('status'),
+            'devUser' => app()->environment('local')
+                ? rescue(fn () => User::first()?->only('name', 'email'))
+                : null,
         ]));
 
         Fortify::resetPasswordView(fn (Request $request) => Inertia::render('auth/ResetPassword', [

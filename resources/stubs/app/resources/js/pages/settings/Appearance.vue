@@ -2,13 +2,10 @@
 import {
     HeadingSmall,
     AppearanceTabs,
-    AppSidebarLayout,
     SettingsLayout,
-    useAppNavigation,
 } from "@hardimpactdev/craft-ui";
+import AppLayout from "@/layouts/AppLayout.vue";
 import { type BreadcrumbItem } from "@/types";
-
-const appNav = useAppNavigation();
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {
@@ -19,7 +16,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
 </script>
 
 <template>
-    <AppSidebarLayout :breadcrumbs="breadcrumbItems" v-bind="appNav">
+    <AppLayout :breadcrumbs="breadcrumbItems">
         <Head title="Appearance settings" />
 
         <SettingsLayout>
@@ -31,5 +28,5 @@ const breadcrumbItems: BreadcrumbItem[] = [
                 <AppearanceTabs />
             </div>
         </SettingsLayout>
-    </AppSidebarLayout>
+    </AppLayout>
 </template>

@@ -10,14 +10,14 @@ abstract class Setup implements SetupInterface
     /**
      * The filesystem instance.
      *
-     * @var \Illuminate\Filesystem\Filesystem
+     * @var Filesystem
      */
     protected $filesystem;
 
     /**
      * The command instance.
      *
-     * @var \Illuminate\Console\Command|null
+     * @var Command|null
      */
     protected $command;
 

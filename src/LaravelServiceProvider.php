@@ -58,7 +58,7 @@ class LaravelServiceProvider extends PackageServiceProvider
         }
 
         if (config('laravel.defaults.prevent_stray_requests') && $this->app->runningUnitTests()) {
-            Http::preventStrayRequests();
+            $this->preventStrayRequests();
         }
 
         if (config('laravel.defaults.fake_sleep') && $this->app->runningUnitTests()) {
@@ -72,5 +72,64 @@ class LaravelServiceProvider extends PackageServiceProvider
                 ->symbols()
                 ->uncompromised());
         }
+    }
+
+    protected function preventStrayRequests(): void
+    {
+        Http::preventStrayRequests();
+
+        $allowedUrls = $this->inertiaSsrRequestUrls();
+
+        if ($allowedUrls !== []) {
+            Http::allowStrayRequests($allowedUrls);
+        }
+    }
+
+    /**
+     * @return array<int, string>
+     */
+    protected function inertiaSsrRequestUrls(): array
+    {
+        if (! config()->has('inertia.ssr.enabled') || ! config('inertia.ssr.enabled')) {
+            return [];
+        }
+
+        $baseUrl = rtrim((string) config('inertia.ssr.url', 'http://127.0.0.1:13714'), '/');
+
+        $urls = [
+            "{$baseUrl}/render",
+            "{$baseUrl}/health",
+        ];
+
+        $viteHotUrl = $this->viteHotUrl();
+
+        if ($viteHotUrl !== null) {
+            $urls[] = "{$viteHotUrl}/__inertia_ssr";
+        }
+
+        return array_values(array_unique($urls));
+    }
+
+    protected function viteHotUrl(): ?string
+    {
+        $vite = $this->app->make(Vite::class);
+
+        if (! $vite->isRunningHot()) {
+            return null;
+        }
+
+        $hotFile = $vite->hotFile();
+
+        if (! is_readable($hotFile)) {
+            return null;
+        }
+
+        $hotUrl = trim((string) file_get_contents($hotFile));
+
+        if ($hotUrl === '') {
+            return null;
+        }
+
+        return rtrim($hotUrl, '/');
     }
 }

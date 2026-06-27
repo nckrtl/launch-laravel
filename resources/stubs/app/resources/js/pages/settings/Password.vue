@@ -6,13 +6,10 @@ import {
     InputError,
     Label,
     SettingsLayout,
-    AppSidebarLayout,
-    useAppNavigation,
 } from "@hardimpactdev/craft-ui";
+import AppLayout from "@/layouts/AppLayout.vue";
 import { ref } from "vue";
 import { type BreadcrumbItem } from "@/types";
-
-const appNav = useAppNavigation();
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {
@@ -54,7 +51,7 @@ const updatePassword = () => {
 </script>
 
 <template>
-    <AppSidebarLayout :breadcrumbs="breadcrumbItems" v-bind="appNav">
+    <AppLayout :breadcrumbs="breadcrumbItems">
         <Head title="Password settings" />
 
         <SettingsLayout>
@@ -132,5 +129,5 @@ const updatePassword = () => {
                 </form>
             </div>
         </SettingsLayout>
-    </AppSidebarLayout>
+    </AppLayout>
 </template>

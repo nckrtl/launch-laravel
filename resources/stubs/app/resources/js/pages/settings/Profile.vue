@@ -8,10 +8,9 @@ import {
     InputError,
     DeleteUser,
     HeadingSmall,
-    AppSidebarLayout,
     SettingsLayout,
-    useAppNavigation,
 } from "@hardimpactdev/craft-ui";
+import AppLayout from "@/layouts/AppLayout.vue";
 import { type BreadcrumbItem, type SharedData, type User } from "@/types";
 
 interface Props {
@@ -30,7 +29,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 const page = usePage<SharedData>();
 const user = page.props.auth.user as User;
-const appNav = useAppNavigation();
 
 const form = useForm({
     name: user.name,
@@ -45,7 +43,7 @@ const submit = () => {
 </script>
 
 <template>
-    <AppSidebarLayout :breadcrumbs="breadcrumbs" v-bind="appNav">
+    <AppLayout :breadcrumbs="breadcrumbs">
         <Head title="Profile settings" />
 
         <SettingsLayout>
@@ -131,5 +129,5 @@ const submit = () => {
                 :route="Controllers.Settings.ProfileController.destroy()"
             />
         </SettingsLayout>
-    </AppSidebarLayout>
+    </AppLayout>
 </template>

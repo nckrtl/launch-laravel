@@ -29,6 +29,15 @@ class CopyAppViewsTask extends Task
 
         $success = true;
 
+        // Copy layouts directory
+        $layoutsFrom = __DIR__.'/../../../resources/stubs/app/resources/js/layouts';
+        $layoutsTo = resource_path('js/layouts');
+
+        if (! $this->copyDirectory($layoutsFrom, $layoutsTo, $replacements)) {
+            $this->error('Failed to copy app layouts.');
+            $success = false;
+        }
+
         // Copy pages directory
         $pagesFrom = __DIR__.'/../../../resources/stubs/app/resources/js/pages';
         $pagesTo = resource_path('js/pages');

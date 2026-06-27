@@ -61,7 +61,7 @@ class HandleInertiaRequests extends Middleware
                             [
                                 'title' => 'Dashboard',
                                 'href' => '/dashboard',
-                                'icon' => 'LayoutGrid',
+                                'icon' => 'lucide:layout-grid',
                             ],
                         ],
                     ],

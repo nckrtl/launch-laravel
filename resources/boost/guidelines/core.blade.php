@@ -153,7 +153,7 @@ This project enforces strict runtime defaults via `config/laravel.php`. These ar
 
 #### Test Only
 
-- **Prevent stray requests** (`Http::preventStrayRequests()`) — any unfaked HTTP call throws an exception. Always fake external HTTP calls in tests.
+- **Prevent stray requests** (`Http::preventStrayRequests()`) — unfaked external HTTP calls throw an exception. Inertia SSR render, health, and Vite hot SSR calls are allowed when SSR is enabled.
 - **Fake sleep** (`Sleep::fake()`) — `Sleep::for()` calls are faked so tests run instantly.
 
 #### Writing Compatible Code
@@ -169,7 +169,7 @@ $nextWeek = $user->created_at->addWeek();
 // ❌ Never mutate dates in place
 $user->created_at->addWeek(); // has no effect with CarbonImmutable
 
-// ✅ Always fake HTTP calls in tests
+// ✅ Always fake external HTTP calls in tests
 Http::fake(['api.example.com/*' => Http::response(['ok' => true])]);
 
 // ✅ Eager-load when not using automatic eager loading

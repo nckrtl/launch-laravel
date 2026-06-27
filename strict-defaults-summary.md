@@ -15,7 +15,7 @@ Added 9 strict runtime defaults, all enabled by default. The service provider ap
 | `force_https` | `URL::forceHttps()` | Production |
 | `prohibit_destructive_commands` | `DB::prohibitDestructiveCommands()` — blocks `migrate:fresh` etc. | Production |
 | `default_password_rules` | `Password::defaults(...)` — min 12, mixed case, numbers, symbols, uncompromised | Production |
-| `prevent_stray_requests` | `Http::preventStrayRequests()` — unfaked HTTP calls throw | Test |
+| `prevent_stray_requests` | `Http::preventStrayRequests()` — unfaked external HTTP calls throw; Inertia SSR endpoints are allowed when SSR is enabled | Test |
 | `fake_sleep` | `Sleep::fake()` — `Sleep::for()` is instant in tests | Test |
 
 Users can disable any default individually:
@@ -38,7 +38,7 @@ This means every scaffolded file will have strict types from the start, and LLMs
 Added a "Strict Defaults" section to `resources/boost/guidelines/core.blade.php` documenting all active defaults with compatible code patterns. LLMs using Boost will know to:
 
 - Never mutate dates (assign return values from `CarbonImmutable`)
-- Always fake HTTP calls in tests
+- Always fake external HTTP calls in tests
 - Always add `declare(strict_types=1)` to new files
 - How to disable specific defaults
 
@@ -51,5 +51,5 @@ Added a baseline entry for the `method_exists(Model::class, 'automaticallyEagerL
 - **No starterkit changes needed** for the runtime defaults — they activate automatically via the package service provider
 - **Existing scaffolded projects** get the defaults on `composer update` (config file publishes on install)
 - **New projects** get `declare(strict_types=1)` in all scaffolded files automatically
-- **Tests**: `Http::preventStrayRequests()` is now active — any test making real HTTP calls without `Http::fake()` will fail. Check existing starterkit tests for unfaked HTTP calls
+- **Tests**: `Http::preventStrayRequests()` is now active — external HTTP calls without `Http::fake()` will fail. Inertia SSR render, health, and Vite hot SSR calls are allowed when SSR is enabled
 - **Dates**: All date casts now return `CarbonImmutable`. Code that mutates dates in place (e.g. `$date->addDay()` without capturing the return) will silently stop working
