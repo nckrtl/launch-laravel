@@ -57,8 +57,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "24"
-          cache: npm
-          cache-dependency-path: starterkit/package-lock.json
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
 
       - name: Install the package under test
         working-directory: starterkit
@@ -68,7 +69,7 @@ jobs:
 
       - name: Install frontend dependencies
         working-directory: starterkit
-        run: npm ci
+        run: bun install --frozen-lockfile
 
       - name: Prepare application
         working-directory: starterkit
@@ -111,7 +112,7 @@ jobs:
 
       - name: Build frontend
         working-directory: starterkit
-        run: npm run build
+        run: bun run build
 
       - name: Run migrations and tests
         working-directory: starterkit
