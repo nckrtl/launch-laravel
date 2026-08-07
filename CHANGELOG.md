@@ -2,6 +2,10 @@
 
 All notable changes to `launch-laravel` will be documented in this file.
 
+## v0.3.6 - 2026-08-07
+
+**Full Changelog**: https://github.com/nckrtl/launch-laravel/compare/v0.3.5...v0.3.6
+
 ## Unreleased
 
 ### Changed
@@ -11,7 +15,6 @@ All notable changes to `launch-laravel` will be documented in this file.
 - Rename config file and key from `craft-laravel` to `launch-laravel`.
 - Rename bundled React registry prefix from `@craft/*` to `@launch/*` (including `launch-app-scaffold`, `launch-auth-scaffold`, `launch-types`).
 - Align Vite i18n detection with `defineLaunchConfig()` from `@hardimpactdev/launch-ui`.
-
 
 ## v0.3.4 - 2026-07-14
 
