@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use HardImpact\Craft\Commands\SetupCommand;
 use HardImpact\Craft\Commands\CraftCommand;
+use HardImpact\Craft\Commands\SetupCommand;
 use HardImpact\Craft\LaravelServiceProvider;
 use HardImpact\Craft\Setup\SetupApp;
 use HardImpact\Craft\Setup\SetupAuth;

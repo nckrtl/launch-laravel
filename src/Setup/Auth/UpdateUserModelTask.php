@@ -131,13 +131,13 @@ class UpdateUserModelTask extends Task
         ];
 
         foreach ($imports as $import) {
-            $content = preg_replace("/^use ".preg_quote($import, '/').";\\n/m", '', $content) ?? $content;
+            $content = preg_replace('/^use '.preg_quote($import, '/').';\\n/m', '', $content) ?? $content;
         }
 
         $block = implode('', array_map(fn (string $import): string => "use {$import};\n", $imports));
 
         return preg_replace(
-            "/^use Illuminate\\\\Notifications\\\\Notifiable;\\n/m",
+            '/^use Illuminate\\\\Notifications\\\\Notifiable;\\n/m',
             "use Illuminate\\Notifications\\Notifiable;\n".$block,
             $content,
             1

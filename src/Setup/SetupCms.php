@@ -2,8 +2,8 @@
 
 namespace HardImpact\Craft\Setup;
 
-use HardImpact\Craft\Setup\Cms\CopyAppClassTask;
 use HardImpact\Craft\Setup\Cms\ConfigureFilamentAuthRedirectTask;
+use HardImpact\Craft\Setup\Cms\CopyAppClassTask;
 use HardImpact\Craft\Setup\Cms\CopyCmsFilesTask;
 use HardImpact\Craft\Setup\Cms\InstallFilamentComposerPackageTask;
 use HardImpact\Craft\Setup\Cms\InstallNpmPackagesTask;

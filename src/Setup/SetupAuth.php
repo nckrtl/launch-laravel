@@ -2,12 +2,12 @@
 
 namespace HardImpact\Craft\Setup;
 
-use HardImpact\Craft\Setup\Auth\CopyAuthTestsTask;
+use HardImpact\Craft\Setup\Auth\CleanupLegacyAuthVueFilesTask;
 use HardImpact\Craft\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
+use HardImpact\Craft\Setup\Auth\ConfigurePasskeysTask;
+use HardImpact\Craft\Setup\Auth\CopyAuthTestsTask;
 use HardImpact\Craft\Setup\Auth\CopyFortifyFilesTask;
 use HardImpact\Craft\Setup\Auth\CopyLoginLinkConfigTask;
-use HardImpact\Craft\Setup\Auth\ConfigurePasskeysTask;
-use HardImpact\Craft\Setup\Auth\CleanupLegacyAuthVueFilesTask;
 use HardImpact\Craft\Setup\Auth\InstallAuthComposerPackagesTask;
 use HardImpact\Craft\Setup\Auth\InstallAuthReactScaffoldTask;
 use HardImpact\Craft\Setup\Auth\InstallFortifyTask;

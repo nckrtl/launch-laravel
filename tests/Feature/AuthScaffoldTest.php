@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Filesystem\Filesystem;
 use HardImpact\Craft\Setup\Auth\CleanupLegacyAuthVueFilesTask;
 use HardImpact\Craft\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
 use HardImpact\Craft\Setup\Auth\InstallAuthReactScaffoldTask;
 use HardImpact\Craft\Setup\Cms\ConfigureFilamentAuthRedirectTask;
 use HardImpact\Craft\Setup\Cms\InstallNpmPackagesTask;
+use HardImpact\Craft\Setup\Cms\RunSetupAuthTask;
 use HardImpact\Craft\Setup\SetupAuth;
 use HardImpact\Craft\Setup\SetupCms;
+use Illuminate\Filesystem\Filesystem;
 
 // Tests for stub file content and namespace placeholders
 
@@ -390,13 +391,13 @@ describe('Filament auth scaffold integration', function () {
         expect($userResourceStub)
             ->toContain("Tables\\Columns\\TextColumn::make('two_factor_confirmed_at')")
             ->toContain("->label('2FA')")
-            ->toContain("->state(fn (User \$record): bool => filled(\$record->two_factor_confirmed_at))")
+            ->toContain('->state(fn (User $record): bool => filled($record->two_factor_confirmed_at))')
             ->toContain("->formatStateUsing(fn (bool \$state): string => \$state ? 'Enabled' : 'Not set up')")
             ->toContain("->color(fn (bool \$state): string => \$state ? 'success' : 'gray')")
             ->toContain("Actions\\Action::make('resetTwoFactorAuthentication')")
             ->toContain("->label('Reset 2FA')")
-            ->toContain("->visible(fn (User \$record): bool => self::hasTwoFactorAuthentication(\$record))")
-            ->toContain("->action(fn (User \$record) => self::resetTwoFactorAuthentication(\$record))")
+            ->toContain('->visible(fn (User $record): bool => self::hasTwoFactorAuthentication($record))')
+            ->toContain('->action(fn (User $record) => self::resetTwoFactorAuthentication($record))')
             ->toContain('public static function hasTwoFactorAuthentication(User $user): bool')
             ->toContain('public static function resetTwoFactorAuthentication(User $user): void')
             ->toContain("'two_factor_secret' => null")
@@ -407,8 +408,8 @@ describe('Filament auth scaffold integration', function () {
             ->toContain("Section::make('Security administration')")
             ->toContain("Actions\\Action::make('resetTwoFactorAuthentication')")
             ->toContain("->label('Reset 2FA')")
-            ->toContain("->visible(fn (User \$record): bool => ! self::isCurrentUser(\$record) && self::hasTwoFactorAuthentication(\$record))")
-            ->toContain("->action(fn (User \$record) => self::resetTwoFactorAuthentication(\$record))");
+            ->toContain('->visible(fn (User $record): bool => ! self::isCurrentUser($record) && self::hasTwoFactorAuthentication($record))')
+            ->toContain('->action(fn (User $record) => self::resetTwoFactorAuthentication($record))');
 
         expect($editUserStub)
             ->not->toContain("Actions\\Action::make('resetTwoFactorAuthentication')");
@@ -430,16 +431,16 @@ describe('Filament auth scaffold integration', function () {
 
         expect($userResourceStub)
             ->toContain("Section::make('Security administration')")
-            ->toContain("SchemaActions::make([")
+            ->toContain('SchemaActions::make([')
             ->toContain("Actions\\Action::make('resetPasskeys')")
-            ->toContain("->visible(fn (User \$record): bool => ! self::isCurrentUser(\$record) && self::hasPasskeys(\$record))")
-            ->toContain("->dehydrateStateUsing(fn (string \$state): string => Hash::make(\$state))")
-            ->toContain("->dehydrated(fn (?string \$state): bool => filled(\$state))")
+            ->toContain('->visible(fn (User $record): bool => ! self::isCurrentUser($record) && self::hasPasskeys($record))')
+            ->toContain('->dehydrateStateUsing(fn (string $state): string => Hash::make($state))')
+            ->toContain('->dehydrated(fn (?string $state): bool => filled($state))')
             ->not->toContain("Section::make('Two-factor authentication')")
             ->not->toContain("Section::make('Passkeys')")
             ->not->toContain("Actions\\Action::make('enableTwoFactorAuthentication')")
             ->not->toContain("View::make('filament.user-security.passkeys')")
-            ->not->toContain("public static function updatePassword(User \$user, string \$password): void");
+            ->not->toContain('public static function updatePassword(User $user, string $password): void');
 
         $profilePageStub = file_get_contents($packageRoot.'/resources/stubs/cms/app/Filament/Pages/Auth/EditProfile.php');
 
@@ -464,21 +465,21 @@ describe('Filament auth scaffold integration', function () {
             ->toContain('Fortify::currentEncrypter()->decrypt($user->two_factor_secret)')
             ->toContain('app(ConfirmTwoFactorAuthentication::class)($this->user(), $code);')
             ->toContain('protected function hasConfirmedTwoFactorAuthentication(): bool')
-            ->toContain("->visible(fn (): bool => ! \$this->hasConfirmedTwoFactorAuthentication())")
-            ->toContain("->visible(fn (): bool => \$this->hasConfirmedTwoFactorAuthentication())")
+            ->toContain('->visible(fn (): bool => ! $this->hasConfirmedTwoFactorAuthentication())')
+            ->toContain('->visible(fn (): bool => $this->hasConfirmedTwoFactorAuthentication())')
             ->toContain("View::make('filament.user-security.passkeys')");
 
         expect($editUserStub)
-            ->toContain("Actions\\DeleteAction::make()")
-            ->toContain("protected function mutateFormDataBeforeFill(array \$data): array")
+            ->toContain('Actions\\DeleteAction::make()')
+            ->toContain('protected function mutateFormDataBeforeFill(array $data): array')
             ->toContain("\$data['password'] = null;")
-            ->toContain("protected function afterSave(): void")
+            ->toContain('protected function afterSave(): void')
             ->toContain("\$this->refreshFormData(['password']);")
             ->not->toContain("Actions\\Action::make('enableTwoFactorAuthentication')")
             ->not->toContain("Actions\\Action::make('managePasskeys')")
             ->not->toContain("Actions\\Action::make('setPassword')");
 
-        $twoFactorView = file_get_contents(__DIR__ . '/../../resources/stubs/cms/resources/views/filament/user-security/two-factor.blade.php');
+        $twoFactorView = file_get_contents(__DIR__.'/../../resources/stubs/cms/resources/views/filament/user-security/two-factor.blade.php');
 
         expect($twoFactorView)
             ->not->toContain('twoFactorSecretKey()')
@@ -585,7 +586,7 @@ describe('Filament auth scaffold integration', function () {
         $taskPosition = array_search(ConfigureFilamentAuthRedirectTask::class, $tasks, true);
 
         expect($taskPosition)
-            ->toBeGreaterThan(array_search(HardImpact\Craft\Setup\Cms\RunSetupAuthTask::class, $tasks, true));
+            ->toBeGreaterThan(array_search(RunSetupAuthTask::class, $tasks, true));
     });
 
     it('points Filament-only auth redirects at the admin panel', function () {
@@ -623,7 +624,7 @@ describe('React auth scaffold installation', function () {
             ->toContain('use Inertia\\Inertia;')
             ->toContain('use Laravel\\Fortify\\Contracts\\LoginResponse as LoginResponseContract;')
             ->toContain('class LoginResponse implements LoginResponseContract')
-            ->toContain("return Inertia::location(\$url);")
+            ->toContain('return Inertia::location($url);')
             ->toContain("config('fortify.non_inertia_paths', [])");
 
         expect($filesystem->get($providerStub))

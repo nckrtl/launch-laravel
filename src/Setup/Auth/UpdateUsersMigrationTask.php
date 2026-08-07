@@ -27,7 +27,7 @@ class UpdateUsersMigrationTask extends Task
 
         $contents = $this->filesystem->get($path);
 
-        if (str_contains($contents, "last_login_at")) {
+        if (str_contains($contents, 'last_login_at')) {
             $this->info('Users migration already includes last_login_at column.');
 
             return true;

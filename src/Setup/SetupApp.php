@@ -6,10 +6,10 @@ namespace HardImpact\Craft\Setup;
 
 use HardImpact\Craft\Setup\App\CopyAppClassTask;
 use HardImpact\Craft\Setup\App\CopyAppControllersTask;
-use HardImpact\Craft\Setup\App\CopyFrontendBootstrapTask;
 use HardImpact\Craft\Setup\App\CopyAppMiddlewareTask;
 use HardImpact\Craft\Setup\App\CopyAppRequestsTask;
 use HardImpact\Craft\Setup\App\CopyAppTestsTask;
+use HardImpact\Craft\Setup\App\CopyFrontendBootstrapTask;
 use HardImpact\Craft\Setup\App\InstallAppReactScaffoldTask;
 use HardImpact\Craft\Setup\App\RunSetupAuthTask;
 use HardImpact\Craft\Setup\Tasks\GenerateRoutesTask;
