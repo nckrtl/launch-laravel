@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace {{namespace}}Http\Controllers\Settings;
 
 use {{namespace}}Http\Controllers\Controller;
-use HardImpact\Waymaker\Get;
-use HardImpact\Waymaker\Put;
+use NckRtl\Waymaker\Get;
+use NckRtl\Waymaker\Put;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;

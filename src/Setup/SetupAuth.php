@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup;
+namespace NckRtl\Launch\Setup;
 
-use HardImpact\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
-use HardImpact\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
-use HardImpact\Launch\Setup\Auth\ConfigurePasskeysTask;
-use HardImpact\Launch\Setup\Auth\CopyAuthTestsTask;
-use HardImpact\Launch\Setup\Auth\CopyFortifyFilesTask;
-use HardImpact\Launch\Setup\Auth\CopyLoginLinkConfigTask;
-use HardImpact\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
-use HardImpact\Launch\Setup\Auth\InstallAuthReactScaffoldTask;
-use HardImpact\Launch\Setup\Auth\InstallLoginLinkTask;
-use HardImpact\Launch\Setup\Auth\PublishMigrationsTask;
-use HardImpact\Launch\Setup\Auth\RegisterFortifyServiceProviderTask;
-use HardImpact\Launch\Setup\Auth\RegisterPasskeyRoutesTask;
-use HardImpact\Launch\Setup\Auth\UpdateDatabaseSeederTask;
-use HardImpact\Launch\Setup\Auth\UpdateUserModelTask;
-use HardImpact\Launch\Setup\Auth\UpdateUsersMigrationTask;
+use NckRtl\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
+use NckRtl\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
+use NckRtl\Launch\Setup\Auth\ConfigurePasskeysTask;
+use NckRtl\Launch\Setup\Auth\CopyAuthTestsTask;
+use NckRtl\Launch\Setup\Auth\CopyFortifyFilesTask;
+use NckRtl\Launch\Setup\Auth\CopyLoginLinkConfigTask;
+use NckRtl\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
+use NckRtl\Launch\Setup\Auth\InstallAuthReactScaffoldTask;
+use NckRtl\Launch\Setup\Auth\InstallLoginLinkTask;
+use NckRtl\Launch\Setup\Auth\PublishMigrationsTask;
+use NckRtl\Launch\Setup\Auth\RegisterFortifyServiceProviderTask;
+use NckRtl\Launch\Setup\Auth\RegisterPasskeyRoutesTask;
+use NckRtl\Launch\Setup\Auth\UpdateDatabaseSeederTask;
+use NckRtl\Launch\Setup\Auth\UpdateUserModelTask;
+use NckRtl\Launch\Setup\Auth\UpdateUsersMigrationTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupAuth extends Setup

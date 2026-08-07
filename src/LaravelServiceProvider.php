@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch;
+namespace NckRtl\Launch;
 
 use Carbon\CarbonImmutable;
-use HardImpact\Launch\Commands\SetupCommand;
+use NckRtl\Launch\Commands\SetupCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Date;

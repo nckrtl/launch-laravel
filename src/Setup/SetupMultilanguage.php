@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup;
+namespace NckRtl\Launch\Setup;
 
-use HardImpact\Launch\Setup\MultiLanguage\ConfigureI18nTask;
-use HardImpact\Launch\Setup\MultiLanguage\CopyExamplePageTask;
-use HardImpact\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
-use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
+use NckRtl\Launch\Setup\MultiLanguage\ConfigureI18nTask;
+use NckRtl\Launch\Setup\MultiLanguage\CopyExamplePageTask;
+use NckRtl\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
+use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupMultilanguage extends Setup

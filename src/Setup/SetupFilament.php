@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup;
+namespace NckRtl\Launch\Setup;
 
 class SetupFilament extends SetupCms {}

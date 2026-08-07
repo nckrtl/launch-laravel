@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup\MultiLanguage;
+namespace NckRtl\Launch\Setup\MultiLanguage;
 
-use HardImpact\Launch\Setup\Tasks\Task;
+use NckRtl\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 

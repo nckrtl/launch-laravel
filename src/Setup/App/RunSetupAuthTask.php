@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup\App;
+namespace NckRtl\Launch\Setup\App;
 
-use HardImpact\Launch\Setup\SetupAuth;
-use HardImpact\Launch\Setup\Tasks\Task;
+use NckRtl\Launch\Setup\SetupAuth;
+use NckRtl\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 

@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Commands;
+namespace NckRtl\Launch\Commands;
 
-use HardImpact\Launch\Setup\SetupApp;
-use HardImpact\Launch\Setup\SetupFilament;
-use HardImpact\Launch\Setup\SetupInterface;
-use HardImpact\Launch\Setup\SetupMultilanguage;
+use NckRtl\Launch\Setup\SetupApp;
+use NckRtl\Launch\Setup\SetupFilament;
+use NckRtl\Launch\Setup\SetupInterface;
+use NckRtl\Launch\Setup\SetupMultilanguage;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 

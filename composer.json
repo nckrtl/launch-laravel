@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HardImpact\\Launch\\": "src/"
+            "NckRtl\\Launch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HardImpact\\Launch\\Tests\\": "tests/",
+            "NckRtl\\Launch\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,7 +63,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "HardImpact\\Launch\\LaravelServiceProvider"
+                "NckRtl\\Launch\\LaravelServiceProvider"
             ]
         }
     },

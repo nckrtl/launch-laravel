@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup;
+namespace NckRtl\Launch\Setup;
 
-use HardImpact\Launch\Setup\Cms\ConfigureFilamentAuthRedirectTask;
-use HardImpact\Launch\Setup\Cms\CopyAppClassTask;
-use HardImpact\Launch\Setup\Cms\CopyCmsFilesTask;
-use HardImpact\Launch\Setup\Cms\InstallFilamentComposerPackageTask;
-use HardImpact\Launch\Setup\Cms\InstallNpmPackagesTask;
-use HardImpact\Launch\Setup\Cms\RegisterFilamentServiceProviderTask;
-use HardImpact\Launch\Setup\Cms\RunFilamentPublishAssetsTask;
-use HardImpact\Launch\Setup\Cms\RunSetupAuthTask;
-use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
+use NckRtl\Launch\Setup\Cms\ConfigureFilamentAuthRedirectTask;
+use NckRtl\Launch\Setup\Cms\CopyAppClassTask;
+use NckRtl\Launch\Setup\Cms\CopyCmsFilesTask;
+use NckRtl\Launch\Setup\Cms\InstallFilamentComposerPackageTask;
+use NckRtl\Launch\Setup\Cms\InstallNpmPackagesTask;
+use NckRtl\Launch\Setup\Cms\RegisterFilamentServiceProviderTask;
+use NckRtl\Launch\Setup\Cms\RunFilamentPublishAssetsTask;
+use NckRtl\Launch\Setup\Cms\RunSetupAuthTask;
+use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupCms extends Setup

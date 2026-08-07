@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Tests;
+namespace NckRtl\Launch\Tests;
 
-use HardImpact\Launch\LaravelServiceProvider;
+use NckRtl\Launch\LaravelServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra

@@ -6,9 +6,9 @@ namespace {{namespace}}Http\Controllers\Settings;
 
 use {{namespace}}Http\Controllers\Controller;
 use {{namespace}}Http\Requests\Settings\ProfileUpdateRequest;
-use HardImpact\Waymaker\Delete;
-use HardImpact\Waymaker\Get;
-use HardImpact\Waymaker\Patch;
+use NckRtl\Waymaker\Delete;
+use NckRtl\Waymaker\Get;
+use NckRtl\Waymaker\Patch;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

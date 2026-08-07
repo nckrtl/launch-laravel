@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use HardImpact\Launch\Setup\MultiLanguage\ConfigureI18nTask;
-use HardImpact\Launch\Setup\MultiLanguage\CopyExamplePageTask;
-use HardImpact\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
-use HardImpact\Launch\Setup\SetupMultilanguage;
-use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
+use NckRtl\Launch\Setup\MultiLanguage\ConfigureI18nTask;
+use NckRtl\Launch\Setup\MultiLanguage\CopyExamplePageTask;
+use NckRtl\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
+use NckRtl\Launch\Setup\SetupMultilanguage;
+use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 describe('multilanguage scaffold', function () {

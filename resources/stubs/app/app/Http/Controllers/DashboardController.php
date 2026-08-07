@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace {{namespace}}Http\Controllers;
 
-use HardImpact\Waymaker\Get;
+use NckRtl\Waymaker\Get;
 
 class DashboardController extends Controller
 {

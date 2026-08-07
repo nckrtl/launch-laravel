@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup\App;
+namespace NckRtl\Launch\Setup\App;
 
-use HardImpact\Launch\Setup\Tasks\InstallLaunchReactRegistryItemsTask;
+use NckRtl\Launch\Setup\Tasks\InstallLaunchReactRegistryItemsTask;
 
 class InstallAppReactScaffoldTask extends InstallLaunchReactRegistryItemsTask
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use HardImpact\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
-use HardImpact\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
-use HardImpact\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
-use HardImpact\Launch\Setup\Auth\InstallAuthReactScaffoldTask;
-use HardImpact\Launch\Setup\Cms\ConfigureFilamentAuthRedirectTask;
-use HardImpact\Launch\Setup\Cms\InstallNpmPackagesTask;
-use HardImpact\Launch\Setup\Cms\RunSetupAuthTask;
-use HardImpact\Launch\Setup\SetupAuth;
-use HardImpact\Launch\Setup\SetupCms;
+use NckRtl\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
+use NckRtl\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
+use NckRtl\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
+use NckRtl\Launch\Setup\Auth\InstallAuthReactScaffoldTask;
+use NckRtl\Launch\Setup\Cms\ConfigureFilamentAuthRedirectTask;
+use NckRtl\Launch\Setup\Cms\InstallNpmPackagesTask;
+use NckRtl\Launch\Setup\Cms\RunSetupAuthTask;
+use NckRtl\Launch\Setup\SetupAuth;
+use NckRtl\Launch\Setup\SetupCms;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 

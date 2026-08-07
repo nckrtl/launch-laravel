@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup\Cms;
+namespace NckRtl\Launch\Setup\Cms;
 
-use HardImpact\Launch\Setup\Tasks\Task;
+use NckRtl\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;

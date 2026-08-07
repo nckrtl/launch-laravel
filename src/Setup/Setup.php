@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup;
+namespace NckRtl\Launch\Setup;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;

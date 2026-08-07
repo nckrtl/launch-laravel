@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup;
+namespace NckRtl\Launch\Setup;
 
-use HardImpact\Launch\Setup\App\CopyAppClassTask;
-use HardImpact\Launch\Setup\App\CopyAppControllersTask;
-use HardImpact\Launch\Setup\App\CopyAppMiddlewareTask;
-use HardImpact\Launch\Setup\App\CopyAppRequestsTask;
-use HardImpact\Launch\Setup\App\CopyAppTestsTask;
-use HardImpact\Launch\Setup\App\CopyFrontendBootstrapTask;
-use HardImpact\Launch\Setup\App\InstallAppReactScaffoldTask;
-use HardImpact\Launch\Setup\App\RunSetupAuthTask;
-use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
+use NckRtl\Launch\Setup\App\CopyAppClassTask;
+use NckRtl\Launch\Setup\App\CopyAppControllersTask;
+use NckRtl\Launch\Setup\App\CopyAppMiddlewareTask;
+use NckRtl\Launch\Setup\App\CopyAppRequestsTask;
+use NckRtl\Launch\Setup\App\CopyAppTestsTask;
+use NckRtl\Launch\Setup\App\CopyFrontendBootstrapTask;
+use NckRtl\Launch\Setup\App\InstallAppReactScaffoldTask;
+use NckRtl\Launch\Setup\App\RunSetupAuthTask;
+use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupApp extends Setup

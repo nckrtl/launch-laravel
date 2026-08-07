@@ -6,7 +6,7 @@ namespace {{namespace}}Http\Controllers\Settings;
 
 use {{namespace}}Http\Controllers\Controller;
 use {{namespace}}Http\Requests\Settings\TwoFactorAuthenticationRequest;
-use HardImpact\Waymaker\Get;
+use NckRtl\Waymaker\Get;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;

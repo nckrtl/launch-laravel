@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use HardImpact\Launch\Commands\SetupCommand;
-use HardImpact\Launch\LaravelServiceProvider;
-use HardImpact\Launch\Setup\SetupApp;
-use HardImpact\Launch\Setup\SetupFilament;
-use HardImpact\Launch\Setup\SetupMultilanguage;
+use NckRtl\Launch\Commands\SetupCommand;
+use NckRtl\Launch\LaravelServiceProvider;
+use NckRtl\Launch\Setup\SetupApp;
+use NckRtl\Launch\Setup\SetupFilament;
+use NckRtl\Launch\Setup\SetupMultilanguage;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Artisan;

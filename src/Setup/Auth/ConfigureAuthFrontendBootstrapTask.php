@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Launch\Setup\Auth;
+namespace NckRtl\Launch\Setup\Auth;
 
-use HardImpact\Launch\Setup\Tasks\Task;
+use NckRtl\Launch\Setup\Tasks\Task;
 
 class ConfigureAuthFrontendBootstrapTask extends Task
 {
