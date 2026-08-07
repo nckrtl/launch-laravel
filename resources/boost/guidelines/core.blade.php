@@ -1,14 +1,14 @@
-## Craft Laravel
+## Launch Laravel
 
-Craft Laravel scaffolds React applications built from `hardimpactdev/craft-starterkit-react`.
+Launch Laravel scaffolds React applications built from `hardimpactdev/launch-starter-kit`.
 
 ### Choose a setup
 
 | Goal | Command |
 | --- | --- |
-| Add authentication, dashboard, and account settings | `php artisan craft:setup app` |
-| Add authentication and a Filament admin panel | `php artisan craft:setup filament` |
-| Add JSON translations and React i18n | `php artisan craft:setup multilanguage` |
+| Add authentication, dashboard, and account settings | `php artisan launch:setup app` |
+| Add authentication and a Filament admin panel | `php artisan launch:setup filament` |
+| Add JSON translations and React i18n | `php artisan launch:setup multilanguage` |
 
 These are the only public setup names. Authentication is composed internally by the app and Filament setups.
 
@@ -17,7 +17,7 @@ These are the only public setup names. Authentication is composed internally by 
 @verbatim
 <code-snippet name="Scaffold the React application" lang="bash">
 npm install
-php artisan craft:setup app
+php artisan launch:setup app
 php artisan migrate
 npm run build
 </code-snippet>
@@ -30,7 +30,7 @@ The app setup installs Fortify, passkeys, two-factor confirmation, login links, 
 @verbatim
 <code-snippet name="Scaffold Filament" lang="bash">
 npm install
-php artisan craft:setup filament
+php artisan launch:setup filament
 php artisan migrate
 php artisan make:filament-user
 npm run build
@@ -42,8 +42,8 @@ The Filament setup includes authentication, the Filament 5 panel provider, user 
 ### Multilanguage setup
 
 @verbatim
-<code-snippet name="Enable Craft i18n" lang="bash">
-php artisan craft:setup multilanguage
+<code-snippet name="Enable Launch i18n" lang="bash">
+php artisan launch:setup multilanguage
 npm run build
 </code-snippet>
 @endverbatim
@@ -56,7 +56,7 @@ After scaffolding, run the setup a second time to check idempotency, then run mi
 
 ### Strict defaults
 
-The package enables strict runtime defaults through `config/craft-laravel.php`:
+The package enables strict runtime defaults through `config/launch-laravel.php`:
 
 - strict Eloquent models and automatic relationship eager loading;
 - immutable dates and aggressive Vite prefetching;
@@ -65,4 +65,4 @@ The package enables strict runtime defaults through `config/craft-laravel.php`:
 
 Always add `declare(strict_types=1);` to PHP files. Assign the result of date operations instead of mutating dates, and fake external HTTP requests in tests.
 
-To opt out of a default, publish the package configuration and set the relevant `craft-laravel.defaults` value to `false`.
+To opt out of a default, publish the package configuration and set the relevant `launch-laravel.defaults` value to `false`.

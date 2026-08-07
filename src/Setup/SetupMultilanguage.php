@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup;
+namespace HardImpact\Launch\Setup;
 
-use HardImpact\Craft\Setup\MultiLanguage\ConfigureI18nTask;
-use HardImpact\Craft\Setup\MultiLanguage\CopyExamplePageTask;
-use HardImpact\Craft\Setup\MultiLanguage\CopyLangDirectoryTask;
-use HardImpact\Craft\Setup\Tasks\GenerateRoutesTask;
+use HardImpact\Launch\Setup\MultiLanguage\ConfigureI18nTask;
+use HardImpact\Launch\Setup\MultiLanguage\CopyExamplePageTask;
+use HardImpact\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
+use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupMultilanguage extends Setup

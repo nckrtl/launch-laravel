@@ -5,10 +5,10 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/auth-layout",
-    "@craft/form-errors",
-    "@craft/input-error",
-    "@craft/use-two-factor-auth",
+    "@launch/auth-layout",
+    "@launch/form-errors",
+    "@launch/input-error",
+    "@launch/use-two-factor-auth",
     "button",
     "input",
     "label",

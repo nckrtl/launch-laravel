@@ -1,14 +1,14 @@
 {
-    "name": "hardimpactdev/craft-laravel",
-    "description": "React, authentication, Filament, and localization scaffolding for Craft Laravel applications",
+    "name": "hardimpactdev/launch-laravel",
+    "description": "React, authentication, Filament, and localization scaffolding for Launch Laravel applications",
     "keywords": [
-        "craft",
+        "launch",
         "filament",
         "laravel",
         "react",
         "scaffolding"
     ],
-    "homepage": "https://github.com/hardimpactdev/craft-laravel",
+    "homepage": "https://github.com/hardimpactdev/launch-laravel",
     "license": "MIT",
     "authors": [
         {
@@ -36,12 +36,12 @@
     },
     "autoload": {
         "psr-4": {
-            "HardImpact\\Craft\\": "src/"
+            "HardImpact\\Launch\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "HardImpact\\Craft\\Tests\\": "tests/",
+            "HardImpact\\Launch\\Tests\\": "tests/",
             "Workbench\\App\\": "workbench/app/"
         }
     },
@@ -63,7 +63,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "HardImpact\\Craft\\LaravelServiceProvider"
+                "HardImpact\\Launch\\LaravelServiceProvider"
             ]
         }
     },

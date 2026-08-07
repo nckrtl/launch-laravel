@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Commands;
+namespace HardImpact\Launch\Commands;
 
-use HardImpact\Craft\Setup\SetupApp;
-use HardImpact\Craft\Setup\SetupFilament;
-use HardImpact\Craft\Setup\SetupInterface;
-use HardImpact\Craft\Setup\SetupMultilanguage;
+use HardImpact\Launch\Setup\SetupApp;
+use HardImpact\Launch\Setup\SetupFilament;
+use HardImpact\Launch\Setup\SetupInterface;
+use HardImpact\Launch\Setup\SetupMultilanguage;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
@@ -19,9 +19,9 @@ class SetupCommand extends Command
         'multilanguage' => SetupMultilanguage::class,
     ];
 
-    protected $signature = 'craft:setup {type : The type of setup to run (app, filament, multilanguage)}';
+    protected $signature = 'launch:setup {type : The type of setup to run (app, filament, multilanguage)}';
 
-    protected $description = 'Setup Craft features';
+    protected $description = 'Setup Launch features';
 
     protected Filesystem $filesystem;
 

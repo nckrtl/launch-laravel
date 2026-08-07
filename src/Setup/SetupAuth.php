@@ -2,23 +2,23 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup;
+namespace HardImpact\Launch\Setup;
 
-use HardImpact\Craft\Setup\Auth\CleanupLegacyAuthVueFilesTask;
-use HardImpact\Craft\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
-use HardImpact\Craft\Setup\Auth\ConfigurePasskeysTask;
-use HardImpact\Craft\Setup\Auth\CopyAuthTestsTask;
-use HardImpact\Craft\Setup\Auth\CopyFortifyFilesTask;
-use HardImpact\Craft\Setup\Auth\CopyLoginLinkConfigTask;
-use HardImpact\Craft\Setup\Auth\InstallAuthComposerPackagesTask;
-use HardImpact\Craft\Setup\Auth\InstallAuthReactScaffoldTask;
-use HardImpact\Craft\Setup\Auth\InstallLoginLinkTask;
-use HardImpact\Craft\Setup\Auth\PublishMigrationsTask;
-use HardImpact\Craft\Setup\Auth\RegisterFortifyServiceProviderTask;
-use HardImpact\Craft\Setup\Auth\RegisterPasskeyRoutesTask;
-use HardImpact\Craft\Setup\Auth\UpdateDatabaseSeederTask;
-use HardImpact\Craft\Setup\Auth\UpdateUserModelTask;
-use HardImpact\Craft\Setup\Auth\UpdateUsersMigrationTask;
+use HardImpact\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
+use HardImpact\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
+use HardImpact\Launch\Setup\Auth\ConfigurePasskeysTask;
+use HardImpact\Launch\Setup\Auth\CopyAuthTestsTask;
+use HardImpact\Launch\Setup\Auth\CopyFortifyFilesTask;
+use HardImpact\Launch\Setup\Auth\CopyLoginLinkConfigTask;
+use HardImpact\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
+use HardImpact\Launch\Setup\Auth\InstallAuthReactScaffoldTask;
+use HardImpact\Launch\Setup\Auth\InstallLoginLinkTask;
+use HardImpact\Launch\Setup\Auth\PublishMigrationsTask;
+use HardImpact\Launch\Setup\Auth\RegisterFortifyServiceProviderTask;
+use HardImpact\Launch\Setup\Auth\RegisterPasskeyRoutesTask;
+use HardImpact\Launch\Setup\Auth\UpdateDatabaseSeederTask;
+use HardImpact\Launch\Setup\Auth\UpdateUserModelTask;
+use HardImpact\Launch\Setup\Auth\UpdateUsersMigrationTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupAuth extends Setup

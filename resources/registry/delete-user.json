@@ -5,9 +5,9 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/heading",
-    "@craft/input-error",
-    "@craft/password-input",
+    "@launch/heading",
+    "@launch/input-error",
+    "@launch/password-input",
     "button",
     "dialog",
     "label"

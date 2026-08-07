@@ -6,7 +6,7 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/use-error-toast",
+    "@launch/use-error-toast",
     "button"
   ],
   "files": [

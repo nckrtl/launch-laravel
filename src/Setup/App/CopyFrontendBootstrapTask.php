@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup\App;
+namespace HardImpact\Launch\Setup\App;
 
-use HardImpact\Craft\Setup\Tasks\Task;
+use HardImpact\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 

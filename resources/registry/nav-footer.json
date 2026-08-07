@@ -6,7 +6,7 @@
   ],
   "registryDependencies": [
     "sidebar",
-    "@craft/use-current-url"
+    "@launch/use-current-url"
   ],
   "files": [
     {

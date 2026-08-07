@@ -5,7 +5,7 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/auth-layout",
+    "@launch/auth-layout",
     "button"
   ],
   "files": [

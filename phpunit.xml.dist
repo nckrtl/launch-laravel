@@ -16,7 +16,7 @@
     backupStaticProperties="false"
 >
     <testsuites>
-        <testsuite name="Craft Laravel">
+        <testsuite name="Launch Laravel">
             <directory>tests</directory>
         </testsuite>
     </testsuites>

@@ -5,7 +5,7 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/form-errors"
+    "@launch/form-errors"
   ],
   "files": [
     {

@@ -1,6 +1,6 @@
-import { defineCraftConfig } from "@hardimpactdev/craft-ui-react/vite";
+import { defineLaunchConfig } from "@hardimpactdev/launch-ui/vite";
 
-export default await defineCraftConfig({
+export default await defineLaunchConfig({
     wayfinder: {
         formVariants: true,
     },

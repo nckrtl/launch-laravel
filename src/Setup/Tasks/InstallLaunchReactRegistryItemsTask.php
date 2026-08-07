@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup\Tasks;
+namespace HardImpact\Launch\Setup\Tasks;
 
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
-abstract class InstallCraftReactRegistryItemsTask extends Task
+abstract class InstallLaunchReactRegistryItemsTask extends Task
 {
     public function __construct(Filesystem $filesystem, ?Command $command = null)
     {
@@ -21,7 +21,7 @@ abstract class InstallCraftReactRegistryItemsTask extends Task
         $registryPath = $this->registryPath();
 
         if (! $this->filesystem->isDirectory($registryPath)) {
-            $this->error("The packaged Craft React registry is missing from {$registryPath}.");
+            $this->error("The packaged Launch React registry is missing from {$registryPath}.");
 
             return false;
         }
@@ -41,12 +41,12 @@ abstract class InstallCraftReactRegistryItemsTask extends Task
 
         try {
             if (! $this->waitForRegistry($port)) {
-                $this->error('Failed to start local Craft UI React registry server.');
+                $this->error('Failed to start local Launch UI React registry server.');
 
                 return false;
             }
 
-            $this->pointCraftRegistryAtLocalServer($componentsPath, $port);
+            $this->pointLaunchRegistryAtLocalServer($componentsPath, $port);
 
             $process = new Process([
                 'npx',
@@ -60,7 +60,7 @@ abstract class InstallCraftReactRegistryItemsTask extends Task
             $process->run();
 
             if (! $process->isSuccessful()) {
-                $this->error('Failed to install Craft React scaffold: '.$process->getErrorOutput());
+                $this->error('Failed to install Launch React scaffold: '.$process->getErrorOutput());
 
                 return false;
             }
@@ -71,7 +71,7 @@ abstract class InstallCraftReactRegistryItemsTask extends Task
                 return false;
             }
 
-            $this->info('Craft React scaffold installed successfully.');
+            $this->info('Launch React scaffold installed successfully.');
 
             return true;
         } finally {
@@ -162,14 +162,14 @@ abstract class InstallCraftReactRegistryItemsTask extends Task
         return false;
     }
 
-    private function pointCraftRegistryAtLocalServer(string $componentsPath, int $port): void
+    private function pointLaunchRegistryAtLocalServer(string $componentsPath, int $port): void
     {
         $components = json_decode($this->filesystem->get($componentsPath), true, flags: JSON_THROW_ON_ERROR);
         $components['aliases'] ??= [];
         $components['aliases']['routes'] ??= '@/routes';
         $components['aliases']['pages'] ??= '@/pages';
         $components['registries'] ??= [];
-        $components['registries']['@craft'] = "http://127.0.0.1:{$port}/{name}.json";
+        $components['registries']['@launch'] = "http://127.0.0.1:{$port}/{name}.json";
 
         $this->filesystem->put(
             $componentsPath,

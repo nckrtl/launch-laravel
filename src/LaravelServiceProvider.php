@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft;
+namespace HardImpact\Launch;
 
 use Carbon\CarbonImmutable;
-use HardImpact\Craft\Commands\SetupCommand;
+use HardImpact\Launch\Commands\SetupCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Date;
@@ -27,46 +27,46 @@ class LaravelServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('craft-laravel')
+            ->name('launch-laravel')
             ->hasConfigFile()
             ->hasCommand(SetupCommand::class);
     }
 
     public function packageBooted(): void
     {
-        if (config('craft-laravel.defaults.strict_models')) {
+        if (config('launch-laravel.defaults.strict_models')) {
             Model::shouldBeStrict();
         }
 
-        if (config('craft-laravel.defaults.auto_eager_load') && method_exists(Model::class, 'automaticallyEagerLoadRelationships')) {
+        if (config('launch-laravel.defaults.auto_eager_load') && method_exists(Model::class, 'automaticallyEagerLoadRelationships')) {
             Model::automaticallyEagerLoadRelationships();
         }
 
-        if (config('craft-laravel.defaults.immutable_dates')) {
+        if (config('launch-laravel.defaults.immutable_dates')) {
             Date::use(CarbonImmutable::class);
         }
 
-        if (config('craft-laravel.defaults.force_https') && $this->app->isProduction()) {
+        if (config('launch-laravel.defaults.force_https') && $this->app->isProduction()) {
             URL::forceHttps();
         }
 
-        if (config('craft-laravel.defaults.prohibit_destructive_commands') && $this->app->isProduction()) {
+        if (config('launch-laravel.defaults.prohibit_destructive_commands') && $this->app->isProduction()) {
             DB::prohibitDestructiveCommands();
         }
 
-        if (config('craft-laravel.defaults.aggressive_prefetching')) {
+        if (config('launch-laravel.defaults.aggressive_prefetching')) {
             $this->app->make(Vite::class)->useAggressivePrefetching();
         }
 
-        if (config('craft-laravel.defaults.prevent_stray_requests') && $this->app->runningUnitTests()) {
+        if (config('launch-laravel.defaults.prevent_stray_requests') && $this->app->runningUnitTests()) {
             $this->preventStrayRequests();
         }
 
-        if (config('craft-laravel.defaults.fake_sleep') && $this->app->runningUnitTests()) {
+        if (config('launch-laravel.defaults.fake_sleep') && $this->app->runningUnitTests()) {
             Sleep::fake();
         }
 
-        if (config('craft-laravel.defaults.default_password_rules') && $this->app->isProduction()) {
+        if (config('launch-laravel.defaults.default_password_rules') && $this->app->isProduction()) {
             Password::defaults(fn () => Password::min(12)
                 ->mixedCase()
                 ->numbers()

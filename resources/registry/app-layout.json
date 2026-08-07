@@ -3,8 +3,8 @@
   "name": "app-layout",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/app-sidebar-layout",
-    "@craft/app-header-layout"
+    "@launch/app-sidebar-layout",
+    "@launch/app-header-layout"
   ],
   "files": [
     {

@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use HardImpact\Craft\Commands\SetupCommand;
-use HardImpact\Craft\LaravelServiceProvider;
-use HardImpact\Craft\Setup\SetupApp;
-use HardImpact\Craft\Setup\SetupFilament;
-use HardImpact\Craft\Setup\SetupMultilanguage;
+use HardImpact\Launch\Commands\SetupCommand;
+use HardImpact\Launch\LaravelServiceProvider;
+use HardImpact\Launch\Setup\SetupApp;
+use HardImpact\Launch\Setup\SetupFilament;
+use HardImpact\Launch\Setup\SetupMultilanguage;
 use Illuminate\Filesystem\Filesystem;
 use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Artisan;
@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Http;
 describe('package service provider', function () {
     it('boots on supported Laravel versions and registers its setup command', function () {
         expect(app()->version())->toMatch('/^(12|13)\./');
-        expect(config('craft-laravel.defaults.strict_models'))->toBeTrue();
+        expect(config('launch-laravel.defaults.strict_models'))->toBeTrue();
         expect(Artisan::all())
-            ->toHaveKey('craft:setup')
-            ->and(Artisan::all()['craft:setup'])
+            ->toHaveKey('launch:setup')
+            ->and(Artisan::all()['launch:setup'])
             ->toBeInstanceOf(SetupCommand::class)
             ->and(Artisan::all())
             ->not->toHaveKey('craft');
@@ -26,7 +26,7 @@ describe('package service provider', function () {
 
     it('runs the setup command missing setup path without crashing', function () {
         $this
-            ->artisan('craft:setup missing')
+            ->artisan('launch:setup missing')
             ->expectsOutput("Setup for 'missing' not found.")
             ->assertExitCode(1);
     });
@@ -50,7 +50,7 @@ describe('package service provider', function () {
         config()->set('inertia.ssr.enabled', true);
         config()->set('inertia.ssr.url', 'http://127.0.0.1:13714/');
 
-        $hotFile = tempnam(sys_get_temp_dir(), 'craft-vite-hot-');
+        $hotFile = tempnam(sys_get_temp_dir(), 'launch-vite-hot-');
 
         expect($hotFile)->not->toBeFalse();
 

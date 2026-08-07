@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
-  "name": "craft",
-  "homepage": "https://craft-ui.dev",
+  "name": "launch",
+  "homepage": "https://launch-ui.dev",
   "items": [
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
@@ -45,14 +45,14 @@
       ],
       "registryDependencies": [
         "sidebar",
-        "@craft/ui-sidebar",
-        "@craft/dropdown-menu",
-        "@craft/label",
-        "@craft/sheet",
-        "@craft/app-logo",
-        "@craft/nav-main",
-        "@craft/nav-footer",
-        "@craft/nav-user"
+        "@launch/ui-sidebar",
+        "@launch/dropdown-menu",
+        "@launch/label",
+        "@launch/sheet",
+        "@launch/app-logo",
+        "@launch/nav-main",
+        "@launch/nav-footer",
+        "@launch/nav-user"
       ],
       "files": [
         {
@@ -69,7 +69,7 @@
       "registryDependencies": [
         "sidebar",
         "separator",
-        "@craft/breadcrumbs"
+        "@launch/breadcrumbs"
       ],
       "files": [
         {
@@ -93,12 +93,12 @@
         "dropdown-menu",
         "avatar",
         "tooltip",
-        "@craft/app-logo",
-        "@craft/app-logo-icon",
-        "@craft/breadcrumbs",
-        "@craft/user-menu-content",
-        "@craft/use-initials",
-        "@craft/use-current-url"
+        "@launch/app-logo",
+        "@launch/app-logo-icon",
+        "@launch/breadcrumbs",
+        "@launch/user-menu-content",
+        "@launch/use-initials",
+        "@launch/use-current-url"
       ],
       "files": [
         {
@@ -144,7 +144,7 @@
       ],
       "registryDependencies": [
         "sidebar",
-        "@craft/use-current-url"
+        "@launch/use-current-url"
       ],
       "files": [
         {
@@ -162,7 +162,7 @@
       ],
       "registryDependencies": [
         "sidebar",
-        "@craft/use-current-url"
+        "@launch/use-current-url"
       ],
       "files": [
         {
@@ -183,9 +183,9 @@
         "sidebar",
         "avatar",
         "dropdown-menu",
-        "@craft/use-mobile",
-        "@craft/user-info",
-        "@craft/user-menu-content"
+        "@launch/use-mobile",
+        "@launch/user-info",
+        "@launch/user-menu-content"
       ],
       "files": [
         {
@@ -201,7 +201,7 @@
       "dependencies": [],
       "registryDependencies": [
         "avatar",
-        "@craft/use-initials"
+        "@launch/use-initials"
       ],
       "files": [
         {
@@ -220,7 +220,7 @@
       ],
       "registryDependencies": [
         "dropdown-menu",
-        "@craft/use-appearance"
+        "@launch/use-appearance"
       ],
       "files": [
         {
@@ -296,7 +296,7 @@
       ],
       "registryDependencies": [
         "tabs",
-        "@craft/use-appearance"
+        "@launch/use-appearance"
       ],
       "files": [
         {
@@ -361,7 +361,7 @@
     },
     {
       "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-      "name": "craft-types",
+      "name": "launch-types",
       "type": "registry:lib",
       "dependencies": [
         "@inertiajs/react",
@@ -381,12 +381,12 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/app-shell",
-        "@craft/app-sidebar",
-        "@craft/app-content",
-        "@craft/app-sidebar-header",
-        "@craft/craft-types",
-        "@craft/sonner"
+        "@launch/app-shell",
+        "@launch/app-sidebar",
+        "@launch/app-content",
+        "@launch/app-sidebar-header",
+        "@launch/launch-types",
+        "@launch/sonner"
       ],
       "files": [
         {
@@ -401,11 +401,11 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/app-shell",
-        "@craft/app-header",
-        "@craft/app-content",
-        "@craft/breadcrumb",
-        "@craft/craft-types"
+        "@launch/app-shell",
+        "@launch/app-header",
+        "@launch/app-content",
+        "@launch/breadcrumb",
+        "@launch/launch-types"
       ],
       "files": [
         {
@@ -420,8 +420,8 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/app-sidebar-layout",
-        "@craft/app-header-layout"
+        "@launch/app-sidebar-layout",
+        "@launch/app-header-layout"
       ],
       "files": [
         {
@@ -436,7 +436,7 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/auth-simple-layout"
+        "@launch/auth-simple-layout"
       ],
       "files": [
         {
@@ -451,8 +451,8 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/app-logo-icon",
-        "@craft/sonner"
+        "@launch/app-logo-icon",
+        "@launch/sonner"
       ],
       "files": [
         {
@@ -467,11 +467,11 @@
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/heading",
+        "@launch/heading",
         "separator",
         "sidebar",
-        "@craft/use-current-url",
-        "@craft/craft-types"
+        "@launch/use-current-url",
+        "@launch/launch-types"
       ],
       "files": [
         {
@@ -572,7 +572,7 @@
         "sonner"
       ],
       "registryDependencies": [
-        "@craft/use-appearance"
+        "@launch/use-appearance"
       ],
       "files": [
         {
@@ -591,9 +591,9 @@
       ],
       "registryDependencies": [
         "button",
-        "@craft/input",
-        "@craft/sheet",
-        "@craft/skeleton",
+        "@launch/input",
+        "@launch/sheet",
+        "@launch/skeleton",
         "utils"
       ],
       "files": [
@@ -646,8 +646,8 @@
       "type": "registry:component",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/alert",
-        "@craft/use-error-toast"
+        "@launch/alert",
+        "@launch/use-error-toast"
       ],
       "files": [
         {
@@ -681,9 +681,9 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/heading",
-        "@craft/input-error",
-        "@craft/password-input",
+        "@launch/heading",
+        "@launch/input-error",
+        "@launch/password-input",
         "button",
         "dialog",
         "label"
@@ -705,7 +705,7 @@
       "registryDependencies": [
         "button",
         "dialog",
-        "@craft/craft-types"
+        "@launch/launch-types"
       ],
       "files": [
         {
@@ -723,8 +723,8 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/action-confirmation-provider",
-        "@craft/use-error-toast",
+        "@launch/action-confirmation-provider",
+        "@launch/use-error-toast",
         "button",
         "input",
         "label"
@@ -745,7 +745,7 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/use-error-toast",
+        "@launch/use-error-toast",
         "button"
       ],
       "files": [
@@ -763,8 +763,8 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/passkey-item",
-        "@craft/passkey-register",
+        "@launch/passkey-item",
+        "@launch/passkey-register",
         "button"
       ],
       "files": [
@@ -782,8 +782,8 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/two-factor-setup-modal",
-        "@craft/use-two-factor-auth",
+        "@launch/two-factor-setup-modal",
+        "@launch/use-two-factor-auth",
         "button"
       ],
       "files": [
@@ -801,9 +801,9 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/alert-error",
-        "@craft/form-errors",
-        "@craft/use-clipboard",
+        "@launch/alert-error",
+        "@launch/form-errors",
+        "@launch/use-clipboard",
         "button",
         "dialog",
         "input-otp",
@@ -852,13 +852,13 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/app-layout",
-        "@craft/settings-layout",
-        "@craft/delete-user",
-        "@craft/form-errors",
-        "@craft/heading",
-        "@craft/input-error",
-        "@craft/craft-types",
+        "@launch/app-layout",
+        "@launch/settings-layout",
+        "@launch/delete-user",
+        "@launch/form-errors",
+        "@launch/heading",
+        "@launch/input-error",
+        "@launch/launch-types",
         "button",
         "input",
         "label"
@@ -879,14 +879,14 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/app-layout",
-        "@craft/settings-layout",
-        "@craft/form-errors",
-        "@craft/heading",
-        "@craft/input-error",
-        "@craft/password-input",
-        "@craft/manage-passkeys",
-        "@craft/manage-two-factor",
+        "@launch/app-layout",
+        "@launch/settings-layout",
+        "@launch/form-errors",
+        "@launch/heading",
+        "@launch/input-error",
+        "@launch/password-input",
+        "@launch/manage-passkeys",
+        "@launch/manage-two-factor",
         "button",
         "label"
       ],
@@ -906,10 +906,10 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/app-layout",
-        "@craft/settings-layout",
-        "@craft/appearance-tabs",
-        "@craft/heading"
+        "@launch/app-layout",
+        "@launch/settings-layout",
+        "@launch/appearance-tabs",
+        "@launch/heading"
       ],
       "files": [
         {
@@ -927,12 +927,12 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
-        "@craft/form-errors",
-        "@craft/input-error",
-        "@craft/password-input",
-        "@craft/text-link",
-        "@craft/passkey-verify",
+        "@launch/auth-layout",
+        "@launch/form-errors",
+        "@launch/input-error",
+        "@launch/password-input",
+        "@launch/text-link",
+        "@launch/passkey-verify",
         "button",
         "checkbox",
         "input",
@@ -969,7 +969,7 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/form-errors"
+        "@launch/form-errors"
       ],
       "files": [
         {
@@ -989,7 +989,7 @@
       "type": "registry:hook",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/form-errors"
+        "@launch/form-errors"
       ],
       "files": [
         {
@@ -1006,7 +1006,7 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/confirm-action",
+        "@launch/confirm-action",
         "button",
         "dialog",
         "input",
@@ -1028,7 +1028,7 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/app-layout"
+        "@launch/app-layout"
       ],
       "files": [
         {
@@ -1046,11 +1046,11 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
-        "@craft/form-errors",
-        "@craft/input-error",
-        "@craft/password-input",
-        "@craft/text-link",
+        "@launch/auth-layout",
+        "@launch/form-errors",
+        "@launch/input-error",
+        "@launch/password-input",
+        "@launch/text-link",
         "button",
         "input",
         "label",
@@ -1072,10 +1072,10 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
-        "@craft/form-errors",
-        "@craft/input-error",
-        "@craft/text-link",
+        "@launch/auth-layout",
+        "@launch/form-errors",
+        "@launch/input-error",
+        "@launch/text-link",
         "button",
         "input",
         "label",
@@ -1097,11 +1097,11 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
-        "@craft/form-errors",
-        "@craft/input-error",
-        "@craft/password-input",
-        "@craft/text-link",
+        "@launch/auth-layout",
+        "@launch/form-errors",
+        "@launch/input-error",
+        "@launch/password-input",
+        "@launch/text-link",
         "button",
         "input",
         "label",
@@ -1123,7 +1123,7 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
+        "@launch/auth-layout",
         "button"
       ],
       "files": [
@@ -1142,10 +1142,10 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
-        "@craft/form-errors",
-        "@craft/input-error",
-        "@craft/password-input",
+        "@launch/auth-layout",
+        "@launch/form-errors",
+        "@launch/input-error",
+        "@launch/password-input",
         "button",
         "label",
         "spinner"
@@ -1166,10 +1166,10 @@
         "@inertiajs/react"
       ],
       "registryDependencies": [
-        "@craft/auth-layout",
-        "@craft/form-errors",
-        "@craft/input-error",
-        "@craft/use-two-factor-auth",
+        "@launch/auth-layout",
+        "@launch/form-errors",
+        "@launch/input-error",
+        "@launch/use-two-factor-auth",
         "button",
         "input",
         "label",
@@ -1185,78 +1185,78 @@
       "$schema": "https://ui.shadcn.com/schema/registry-item.json"
     },
     {
-      "name": "craft-auth-scaffold",
+      "name": "launch-auth-scaffold",
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/auth-login-page",
-        "@craft/auth-register-page",
-        "@craft/auth-forgot-password-page",
-        "@craft/auth-reset-password-page",
-        "@craft/auth-verify-email-page",
-        "@craft/auth-confirm-password-page",
-        "@craft/auth-two-factor-challenge-page",
-        "@craft/breadcrumb",
-        "@craft/dropdown-menu",
-        "@craft/input",
-        "@craft/label",
-        "@craft/sheet",
-        "@craft/skeleton",
-        "@craft/sonner",
-        "@craft/ui-sidebar",
-        "@craft/use-appearance",
-        "@craft/use-current-url",
-        "@craft/use-initials",
-        "@craft/use-mobile",
-        "@craft/avatar",
-        "@craft/button",
-        "@craft/card",
-        "@craft/checkbox",
-        "@craft/dialog",
-        "@craft/input-otp",
-        "@craft/navigation-menu",
-        "@craft/separator",
-        "@craft/spinner",
-        "@craft/tabs",
-        "@craft/tooltip",
-        "@craft/use-mobile-legacy"
+        "@launch/auth-login-page",
+        "@launch/auth-register-page",
+        "@launch/auth-forgot-password-page",
+        "@launch/auth-reset-password-page",
+        "@launch/auth-verify-email-page",
+        "@launch/auth-confirm-password-page",
+        "@launch/auth-two-factor-challenge-page",
+        "@launch/breadcrumb",
+        "@launch/dropdown-menu",
+        "@launch/input",
+        "@launch/label",
+        "@launch/sheet",
+        "@launch/skeleton",
+        "@launch/sonner",
+        "@launch/ui-sidebar",
+        "@launch/use-appearance",
+        "@launch/use-current-url",
+        "@launch/use-initials",
+        "@launch/use-mobile",
+        "@launch/avatar",
+        "@launch/button",
+        "@launch/card",
+        "@launch/checkbox",
+        "@launch/dialog",
+        "@launch/input-otp",
+        "@launch/navigation-menu",
+        "@launch/separator",
+        "@launch/spinner",
+        "@launch/tabs",
+        "@launch/tooltip",
+        "@launch/use-mobile-legacy"
       ],
       "files": [],
       "$schema": "https://ui.shadcn.com/schema/registry-item.json"
     },
     {
-      "name": "craft-app-scaffold",
+      "name": "launch-app-scaffold",
       "type": "registry:block",
       "dependencies": [],
       "registryDependencies": [
-        "@craft/dashboard-page",
-        "@craft/settings-profile-page",
-        "@craft/settings-security-page",
-        "@craft/settings-appearance-page",
-        "@craft/breadcrumb",
-        "@craft/dropdown-menu",
-        "@craft/input",
-        "@craft/label",
-        "@craft/sheet",
-        "@craft/skeleton",
-        "@craft/sonner",
-        "@craft/ui-sidebar",
-        "@craft/use-appearance",
-        "@craft/use-current-url",
-        "@craft/use-initials",
-        "@craft/use-mobile",
-        "@craft/avatar",
-        "@craft/button",
-        "@craft/card",
-        "@craft/checkbox",
-        "@craft/dialog",
-        "@craft/input-otp",
-        "@craft/navigation-menu",
-        "@craft/separator",
-        "@craft/spinner",
-        "@craft/tabs",
-        "@craft/tooltip",
-        "@craft/use-mobile-legacy"
+        "@launch/dashboard-page",
+        "@launch/settings-profile-page",
+        "@launch/settings-security-page",
+        "@launch/settings-appearance-page",
+        "@launch/breadcrumb",
+        "@launch/dropdown-menu",
+        "@launch/input",
+        "@launch/label",
+        "@launch/sheet",
+        "@launch/skeleton",
+        "@launch/sonner",
+        "@launch/ui-sidebar",
+        "@launch/use-appearance",
+        "@launch/use-current-url",
+        "@launch/use-initials",
+        "@launch/use-mobile",
+        "@launch/avatar",
+        "@launch/button",
+        "@launch/card",
+        "@launch/checkbox",
+        "@launch/dialog",
+        "@launch/input-otp",
+        "@launch/navigation-menu",
+        "@launch/separator",
+        "@launch/spinner",
+        "@launch/tabs",
+        "@launch/tooltip",
+        "@launch/use-mobile-legacy"
       ],
       "files": [],
       "$schema": "https://ui.shadcn.com/schema/registry-item.json"
@@ -1338,7 +1338,7 @@
         "lucide-react"
       ],
       "registryDependencies": [
-        "@craft/button",
+        "@launch/button",
         "utils"
       ],
       "files": [

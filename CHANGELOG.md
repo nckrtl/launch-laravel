@@ -1,13 +1,24 @@
 # Changelog
 
-All notable changes to `Laravel` will be documented in this file.
+All notable changes to `launch-laravel` will be documented in this file.
+
+## Unreleased
+
+### Changed
+
+- Rename package from `hardimpactdev/craft-laravel` / `HardImpact\\Craft` to `hardimpactdev/launch-laravel` / `HardImpact\\Launch`.
+- Rename Artisan command `craft:setup` to `launch:setup`.
+- Rename config file and key from `craft-laravel` to `launch-laravel`.
+- Rename bundled React registry prefix from `@craft/*` to `@launch/*` (including `launch-app-scaffold`, `launch-auth-scaffold`, `launch-types`).
+- Align Vite i18n detection with `defineLaunchConfig()` from `@hardimpactdev/launch-ui`.
+
 
 ## v0.3.4 - 2026-07-14
 
 ### What's changed
 
-- Rebuilt the package scaffolds for the Laravel 13 + React 19 Craft starterkit.
-- Bundled the complete Craft React registry so app and authentication setup no longer depends on an unpublished local package.
+- Rebuilt the package scaffolds for the Laravel 13 + React 19 Launch starterkit.
+- Bundled the complete Launch React registry so app and authentication setup no longer depends on an unpublished local package.
 - Expanded the app scaffold with Fortify authentication, passkeys, two-factor confirmation, security settings, and generated Wayfinder imports.
 - Added a Filament 5 admin scaffold with shared authentication, user management, profile editing, passkeys, and two-factor controls.
 - Replaced the legacy Vue multilanguage example with JSON translations and a React example page.
@@ -17,9 +28,9 @@ All notable changes to `Laravel` will be documented in this file.
 
 The supported public setup commands are now limited to:
 
-- `php artisan craft:setup app`
-- `php artisan craft:setup filament`
-- `php artisan craft:setup multilanguage`
+- `php artisan launch:setup app`
+- `php artisan launch:setup filament`
+- `php artisan launch:setup multilanguage`
 
 Authentication remains an internal building block of the app and Filament scaffolds; the old public `auth`, `dashboard`, and `cms` setup entry points have been removed.
 
@@ -29,7 +40,7 @@ Authentication remains an internal building block of the app and Filament scaffo
 - Laravel 12–13
 - React 19 starterkit
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/v0.3.3...v0.3.4
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/v0.3.3...v0.3.4
 
 ## v0.3.2 - 2026-05-12
 
@@ -38,7 +49,7 @@ Authentication remains an internal building block of the app and Filament scaffo
 - Add Laravel 13 support to `illuminate/contracts` constraint (^12.0 || ^13.0).
 - Scaffolding refinements: simplify scaffolds to app + filament, add `RunMigrationsTask` and `BuildFrontendTask`, `ConfigureAppEntryTask` for app.tsx layout resolver, publish Fortify 2FA migrations, exclude Home page from sidebar layout, rename `password.update` route to `security.password`.
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/v0.3.1...v0.3.2
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/v0.3.1...v0.3.2
 
 ## v0.2.9 - Auth Scaffold Namespace Fix - 2026-02-24
 
@@ -69,7 +80,7 @@ Authentication remains an internal building block of the app and Filament scaffo
   - Added comprehensive regression tests in `AuthScaffoldTest.php`
   
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/v0.2.6...v0.2.7
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/v0.2.6...v0.2.7
 
 ## 0.2.0 - 2026-01-19
 
@@ -111,7 +122,7 @@ refactor: update stubs to use useAppNavigation composable
 - Fixed incorrect package import (`@hardimpactdev/craft-vue` → `@hardimpactdev/craft-ui`)
 - Fixed layout component names (`AppLayout` → `AppSidebarLayout`)
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/0.1.6...0.1.7
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/0.1.6...0.1.7
 
 ## 0.1.6 - 2026-01-16
 
@@ -119,7 +130,7 @@ refactor: update stubs to use useAppNavigation composable
 
 - Removed "v" prefix from version tags for cleaner Composer versioning (use `0.1.6` instead of `v0.1.6`)
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/v0.1.5...0.1.6
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/v0.1.5...0.1.6
 
 ## v0.1.5 - 2026-01-15
 
@@ -128,7 +139,7 @@ refactor: update stubs to use useAppNavigation composable
 - Converted CLAUDE.md to AGENTS.md with symlink for OpenCode compatibility
 - Updated dependabot/fetch-metadata from 2.4.0 to 2.5.0
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/v0.1.4...v0.1.5
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/v0.1.4...v0.1.5
 
 ## v0.1.4 - 2026-01-08
 
@@ -141,7 +152,7 @@ refactor: update stubs to use useAppNavigation composable
 - Document versioning workflow and CHANGELOG format
 - Include troubleshooting guide for releases
 
-**Full Changelog**: https://github.com/hardimpactdev/craft-laravel/compare/v0.1.3...v0.1.4
+**Full Changelog**: https://github.com/hardimpactdev/launch-laravel/compare/v0.1.3...v0.1.4
 
 ## v0.1.3 - 2026-01-08
 
@@ -174,16 +185,16 @@ refactor: update stubs to use useAppNavigation composable
 
 ### Initial Release
 
-First tagged release of craft-laravel, the scaffolding companion package for craft-starterkit.
+First tagged release of launch-laravel, the scaffolding companion package for craft-starterkit.
 
 #### Features
 
 - **Modular Setup System**: Run individual setups as needed
-  - `craft:setup auth` - Add authentication
-  - `craft:setup dashboard` - Add dashboard + settings pages
-  - `craft:setup app` - Full app (auth + dashboard combined)
-  - `craft:setup cms` - Add Filament CMS
-  - `craft:setup multilanguage` - Add language files
+  - `launch:setup auth` - Add authentication
+  - `launch:setup dashboard` - Add dashboard + settings pages
+  - `launch:setup app` - Full app (auth + dashboard combined)
+  - `launch:setup cms` - Add Filament CMS
+  - `launch:setup multilanguage` - Add language files
   
 
 #### Bug Fixes
@@ -201,4 +212,4 @@ First tagged release of craft-laravel, the scaffolding companion package for cra
 
 #### Breaking Changes
 
-- `craft:setup app` no longer includes CMS - run `craft:setup cms` separately if needed
+- `launch:setup app` no longer includes CMS - run `launch:setup cms` separately if needed

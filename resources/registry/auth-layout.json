@@ -3,7 +3,7 @@
   "name": "auth-layout",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/auth-simple-layout"
+    "@launch/auth-simple-layout"
   ],
   "files": [
     {

@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup\MultiLanguage;
+namespace HardImpact\Launch\Setup\MultiLanguage;
 
-use HardImpact\Craft\Setup\Tasks\Task;
+use HardImpact\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
 
@@ -34,23 +34,23 @@ class ConfigureI18nTask extends Task
         }
 
         $configured = str_replace(
-            'defineCraftConfig()',
-            'defineCraftConfig({ i18n: true })',
+            'defineLaunchConfig()',
+            'defineLaunchConfig({ i18n: true })',
             $contents,
             $emptyConfigReplacements,
         );
 
         if ($emptyConfigReplacements === 0) {
             $configured = preg_replace(
-                '/defineCraftConfig\(\{\s*/',
-                "defineCraftConfig({\n    i18n: true,\n    ",
+                '/defineLaunchConfig\(\{\s*/',
+                "defineLaunchConfig({\n    i18n: true,\n    ",
                 $contents,
                 1,
                 $objectConfigReplacements,
             ) ?? $contents;
 
             if ($objectConfigReplacements === 0) {
-                $this->error('Could not locate defineCraftConfig() in vite.config.ts.');
+                $this->error('Could not locate defineLaunchConfig() in vite.config.ts.');
 
                 return false;
             }

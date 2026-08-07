@@ -5,8 +5,8 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/two-factor-setup-modal",
-    "@craft/use-two-factor-auth",
+    "@launch/two-factor-setup-modal",
+    "@launch/use-two-factor-auth",
     "button"
   ],
   "files": [

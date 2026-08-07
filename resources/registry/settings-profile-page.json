@@ -5,13 +5,13 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/app-layout",
-    "@craft/settings-layout",
-    "@craft/delete-user",
-    "@craft/form-errors",
-    "@craft/heading",
-    "@craft/input-error",
-    "@craft/craft-types",
+    "@launch/app-layout",
+    "@launch/settings-layout",
+    "@launch/delete-user",
+    "@launch/form-errors",
+    "@launch/heading",
+    "@launch/input-error",
+    "@launch/launch-types",
     "button",
     "input",
     "label"

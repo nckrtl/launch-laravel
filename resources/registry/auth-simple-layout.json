@@ -3,8 +3,8 @@
   "name": "auth-simple-layout",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/app-logo-icon",
-    "@craft/sonner"
+    "@launch/app-logo-icon",
+    "@launch/sonner"
   ],
   "files": [
     {

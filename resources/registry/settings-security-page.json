@@ -5,14 +5,14 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/app-layout",
-    "@craft/settings-layout",
-    "@craft/form-errors",
-    "@craft/heading",
-    "@craft/input-error",
-    "@craft/password-input",
-    "@craft/manage-passkeys",
-    "@craft/manage-two-factor",
+    "@launch/app-layout",
+    "@launch/settings-layout",
+    "@launch/form-errors",
+    "@launch/heading",
+    "@launch/input-error",
+    "@launch/password-input",
+    "@launch/manage-passkeys",
+    "@launch/manage-two-factor",
     "button",
     "label"
   ],

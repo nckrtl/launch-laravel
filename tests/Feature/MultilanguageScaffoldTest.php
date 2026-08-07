@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-use HardImpact\Craft\Setup\MultiLanguage\ConfigureI18nTask;
-use HardImpact\Craft\Setup\MultiLanguage\CopyExamplePageTask;
-use HardImpact\Craft\Setup\MultiLanguage\CopyLangDirectoryTask;
-use HardImpact\Craft\Setup\SetupMultilanguage;
-use HardImpact\Craft\Setup\Tasks\GenerateRoutesTask;
+use HardImpact\Launch\Setup\MultiLanguage\ConfigureI18nTask;
+use HardImpact\Launch\Setup\MultiLanguage\CopyExamplePageTask;
+use HardImpact\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
+use HardImpact\Launch\Setup\SetupMultilanguage;
+use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 describe('multilanguage scaffold', function () {
@@ -23,7 +23,7 @@ describe('multilanguage scaffold', function () {
             ->not->toBeFile();
 
         expect(file_get_contents("{$packageRoot}/resources/stubs/multi-language/resources/js/pages/TranslationExample.tsx"))
-            ->toContain('@hardimpactdev/craft-ui-react/i18n')
+            ->toContain('@hardimpactdev/launch-ui/i18n')
             ->toContain('setLocale')
             ->toContain('useLocale');
     });
@@ -41,14 +41,14 @@ describe('multilanguage scaffold', function () {
             ]);
     });
 
-    it('enables i18n in an empty Craft Vite configuration', function () {
+    it('enables i18n in an empty Launch Vite configuration', function () {
         $filesystem = new Filesystem;
         $originalBasePath = app()->basePath();
-        $temporaryBasePath = sys_get_temp_dir().'/craft-i18n-'.uniqid();
+        $temporaryBasePath = sys_get_temp_dir().'/launch-i18n-'.uniqid();
         $viteConfig = <<<'TYPESCRIPT'
-import { defineCraftConfig } from "@hardimpactdev/craft-ui-react/vite";
+import { defineLaunchConfig } from "@hardimpactdev/launch-ui/vite";
 
-export default await defineCraftConfig();
+export default await defineLaunchConfig();
 TYPESCRIPT;
 
         $filesystem->ensureDirectoryExists($temporaryBasePath);
@@ -60,21 +60,21 @@ TYPESCRIPT;
 
             expect($task->run())->toBeTrue()
                 ->and($filesystem->get("{$temporaryBasePath}/vite.config.ts"))
-                ->toContain('defineCraftConfig({ i18n: true })');
+                ->toContain('defineLaunchConfig({ i18n: true })');
         } finally {
             app()->setBasePath($originalBasePath);
             $filesystem->deleteDirectory($temporaryBasePath);
         }
     });
 
-    it('adds i18n to an existing Craft Vite configuration once', function () {
+    it('adds i18n to an existing Launch Vite configuration once', function () {
         $filesystem = new Filesystem;
         $originalBasePath = app()->basePath();
-        $temporaryBasePath = sys_get_temp_dir().'/craft-i18n-'.uniqid();
+        $temporaryBasePath = sys_get_temp_dir().'/launch-i18n-'.uniqid();
         $viteConfig = <<<'TYPESCRIPT'
-import { defineCraftConfig } from "@hardimpactdev/craft-ui-react/vite";
+import { defineLaunchConfig } from "@hardimpactdev/launch-ui/vite";
 
-export default await defineCraftConfig({
+export default await defineLaunchConfig({
     wayfinder: {
         formVariants: true,
     },
@@ -94,7 +94,7 @@ TYPESCRIPT;
             $configured = $filesystem->get("{$temporaryBasePath}/vite.config.ts");
 
             expect($configured)
-                ->toContain("defineCraftConfig({\n    i18n: true,")
+                ->toContain("defineLaunchConfig({\n    i18n: true,")
                 ->and(substr_count($configured, 'i18n: true'))
                 ->toBe(1);
         } finally {

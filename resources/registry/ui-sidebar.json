@@ -7,9 +7,9 @@
   ],
   "registryDependencies": [
     "button",
-    "@craft/input",
-    "@craft/sheet",
-    "@craft/skeleton",
+    "@launch/input",
+    "@launch/sheet",
+    "@launch/skeleton",
     "utils"
   ],
   "files": [

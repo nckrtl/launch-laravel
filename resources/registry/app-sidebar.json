@@ -7,14 +7,14 @@
   ],
   "registryDependencies": [
     "sidebar",
-    "@craft/ui-sidebar",
-    "@craft/dropdown-menu",
-    "@craft/label",
-    "@craft/sheet",
-    "@craft/app-logo",
-    "@craft/nav-main",
-    "@craft/nav-footer",
-    "@craft/nav-user"
+    "@launch/ui-sidebar",
+    "@launch/dropdown-menu",
+    "@launch/label",
+    "@launch/sheet",
+    "@launch/app-logo",
+    "@launch/nav-main",
+    "@launch/nav-footer",
+    "@launch/nav-user"
   ],
   "files": [
     {

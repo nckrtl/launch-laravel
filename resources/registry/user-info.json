@@ -4,7 +4,7 @@
   "dependencies": [],
   "registryDependencies": [
     "avatar",
-    "@craft/use-initials"
+    "@launch/use-initials"
   ],
   "files": [
     {

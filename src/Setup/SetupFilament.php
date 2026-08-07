@@ -2,6 +2,6 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup;
+namespace HardImpact\Launch\Setup;
 
 class SetupFilament extends SetupCms {}

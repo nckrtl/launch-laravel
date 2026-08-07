@@ -9,9 +9,9 @@
     "sidebar",
     "avatar",
     "dropdown-menu",
-    "@craft/use-mobile",
-    "@craft/user-info",
-    "@craft/user-menu-content"
+    "@launch/use-mobile",
+    "@launch/user-info",
+    "@launch/user-menu-content"
   ],
   "files": [
     {

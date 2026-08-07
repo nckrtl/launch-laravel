@@ -12,12 +12,12 @@
     "dropdown-menu",
     "avatar",
     "tooltip",
-    "@craft/app-logo",
-    "@craft/app-logo-icon",
-    "@craft/breadcrumbs",
-    "@craft/user-menu-content",
-    "@craft/use-initials",
-    "@craft/use-current-url"
+    "@launch/app-logo",
+    "@launch/app-logo-icon",
+    "@launch/breadcrumbs",
+    "@launch/user-menu-content",
+    "@launch/use-initials",
+    "@launch/use-current-url"
   ],
   "files": [
     {

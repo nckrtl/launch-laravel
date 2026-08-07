@@ -7,7 +7,7 @@
   ],
   "registryDependencies": [
     "dropdown-menu",
-    "@craft/use-appearance"
+    "@launch/use-appearance"
   ],
   "files": [
     {

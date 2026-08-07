@@ -5,12 +5,12 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/auth-layout",
-    "@craft/form-errors",
-    "@craft/input-error",
-    "@craft/password-input",
-    "@craft/text-link",
-    "@craft/passkey-verify",
+    "@launch/auth-layout",
+    "@launch/form-errors",
+    "@launch/input-error",
+    "@launch/password-input",
+    "@launch/text-link",
+    "@launch/passkey-verify",
     "button",
     "checkbox",
     "input",

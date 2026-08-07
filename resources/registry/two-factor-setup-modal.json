@@ -5,9 +5,9 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/alert-error",
-    "@craft/form-errors",
-    "@craft/use-clipboard",
+    "@launch/alert-error",
+    "@launch/form-errors",
+    "@launch/use-clipboard",
     "button",
     "dialog",
     "input-otp",

@@ -1,5 +1,5 @@
 import { Head } from "@inertiajs/react";
-import { __, setLocale, useLocale } from "@hardimpactdev/craft-ui-react/i18n";
+import { __, setLocale, useLocale } from "@hardimpactdev/launch-ui/i18n";
 
 export default function TranslationExample() {
     const locale = useLocale();
@@ -13,7 +13,7 @@ export default function TranslationExample() {
                     {__("Current language: :locale", { locale: locale.toUpperCase() })}
                 </p>
                 <h1 className="text-4xl font-semibold tracking-tight">
-                    {__("Hello :name", { name: "Craft" })}
+                    {__("Hello :name", { name: "Launch" })}
                 </h1>
             </div>
 

@@ -34,15 +34,15 @@ jobs:
         setup: [app, filament, multilanguage]
 
     steps:
-      - name: Checkout Craft Laravel
+      - name: Checkout Launch Laravel
         uses: actions/checkout@v4
         with:
-          path: craft-laravel
+          path: launch-laravel
 
-      - name: Checkout Craft React starterkit
+      - name: Checkout Launch React starterkit
         uses: actions/checkout@v4
         with:
-          repository: hardimpactdev/craft-starterkit-react
+          repository: hardimpactdev/launch-starter-kit
           token: ${{ secrets.GH_PAT }}
           path: starterkit
 
@@ -63,8 +63,8 @@ jobs:
       - name: Install the package under test
         working-directory: starterkit
         run: |
-          composer config repositories.craft-laravel path ../craft-laravel
-          composer require hardimpactdev/craft-laravel:@dev --with-all-dependencies --prefer-dist --no-interaction
+          composer config repositories.launch-laravel path ../launch-laravel
+          composer require hardimpactdev/launch-laravel:@dev --with-all-dependencies --prefer-dist --no-interaction
 
       - name: Install frontend dependencies
         working-directory: starterkit
@@ -80,8 +80,8 @@ jobs:
       - name: Run setup twice
         working-directory: starterkit
         run: |
-          php artisan craft:setup ${{ matrix.setup }}
-          php artisan craft:setup ${{ matrix.setup }}
+          php artisan launch:setup ${{ matrix.setup }}
+          php artisan launch:setup ${{ matrix.setup }}
 
       - name: Verify generated files
         working-directory: starterkit

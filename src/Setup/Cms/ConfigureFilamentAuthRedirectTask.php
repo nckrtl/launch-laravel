@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup\Cms;
+namespace HardImpact\Launch\Setup\Cms;
 
-use HardImpact\Craft\Setup\Tasks\Task;
+use HardImpact\Launch\Setup\Tasks\Task;
 
 class ConfigureFilamentAuthRedirectTask extends Task
 {

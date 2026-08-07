@@ -5,8 +5,8 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/passkey-item",
-    "@craft/passkey-register",
+    "@launch/passkey-item",
+    "@launch/passkey-register",
     "button"
   ],
   "files": [

@@ -1,6 +1,6 @@
-# Craft Laravel Package
+# Launch Laravel Package
 
-Laravel 12/13 scaffolding for the React-based [Craft starterkit](https://github.com/hardimpactdev/craft-starterkit-react).
+Laravel 12/13 scaffolding for the React-based [Launch starterkit](https://github.com/hardimpactdev/launch-starter-kit).
 
 ## Public API
 
@@ -8,9 +8,9 @@ Only these setup commands are public:
 
 | Command | Setup class |
 | --- | --- |
-| `php artisan craft:setup app` | `SetupApp` |
-| `php artisan craft:setup filament` | `SetupFilament` |
-| `php artisan craft:setup multilanguage` | `SetupMultilanguage` |
+| `php artisan launch:setup app` | `SetupApp` |
+| `php artisan launch:setup filament` | `SetupFilament` |
+| `php artisan launch:setup multilanguage` | `SetupMultilanguage` |
 
 `SetupAuth` and `SetupCms` are internal composition classes. Add a setup to `SetupCommand::SETUPS` only when it is intentionally part of the public API.
 
@@ -31,7 +31,7 @@ Keep tasks idempotent. Check before modifying or registering files, return `fals
 - Follow Laravel conventions and use explicit types.
 - Use Waymaker attributes in generated controllers and Wayfinder action helpers in React files.
 - Keep React output compatible with React 19, Inertia 3, Tailwind CSS 4, Base UI, and VitePlus.
-- Do not add Vue stubs or depend on an unpublished local `craft-ui-react` registry.
+- Do not add Vue stubs or depend on an unpublished local `launch-ui` registry.
 - Keep the public command surface and README synchronized.
 
 ## Verification
@@ -45,7 +45,7 @@ composer format -- --test
 composer validate --strict
 ```
 
-For scaffold changes, also run the affected public setup twice in a clean `craft-starterkit-react` checkout, then run its migrations, tests, and production build.
+For scaffold changes, also run the affected public setup twice in a clean `launch-starter-kit` checkout, then run its migrations, tests, and production build.
 
 ## Release workflow
 

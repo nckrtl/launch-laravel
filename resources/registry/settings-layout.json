@@ -3,11 +3,11 @@
   "name": "settings-layout",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/heading",
+    "@launch/heading",
     "separator",
     "sidebar",
-    "@craft/use-current-url",
-    "@craft/craft-types"
+    "@launch/use-current-url",
+    "@launch/launch-types"
   ],
   "files": [
     {

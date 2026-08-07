@@ -6,8 +6,8 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/action-confirmation-provider",
-    "@craft/use-error-toast",
+    "@launch/action-confirmation-provider",
+    "@launch/use-error-toast",
     "button",
     "input",
     "label"

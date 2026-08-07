@@ -5,10 +5,10 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/app-layout",
-    "@craft/settings-layout",
-    "@craft/appearance-tabs",
-    "@craft/heading"
+    "@launch/app-layout",
+    "@launch/settings-layout",
+    "@launch/appearance-tabs",
+    "@launch/heading"
   ],
   "files": [
     {

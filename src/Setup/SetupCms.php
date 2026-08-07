@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup;
+namespace HardImpact\Launch\Setup;
 
-use HardImpact\Craft\Setup\Cms\ConfigureFilamentAuthRedirectTask;
-use HardImpact\Craft\Setup\Cms\CopyAppClassTask;
-use HardImpact\Craft\Setup\Cms\CopyCmsFilesTask;
-use HardImpact\Craft\Setup\Cms\InstallFilamentComposerPackageTask;
-use HardImpact\Craft\Setup\Cms\InstallNpmPackagesTask;
-use HardImpact\Craft\Setup\Cms\RegisterFilamentServiceProviderTask;
-use HardImpact\Craft\Setup\Cms\RunFilamentPublishAssetsTask;
-use HardImpact\Craft\Setup\Cms\RunSetupAuthTask;
-use HardImpact\Craft\Setup\Tasks\GenerateRoutesTask;
+use HardImpact\Launch\Setup\Cms\ConfigureFilamentAuthRedirectTask;
+use HardImpact\Launch\Setup\Cms\CopyAppClassTask;
+use HardImpact\Launch\Setup\Cms\CopyCmsFilesTask;
+use HardImpact\Launch\Setup\Cms\InstallFilamentComposerPackageTask;
+use HardImpact\Launch\Setup\Cms\InstallNpmPackagesTask;
+use HardImpact\Launch\Setup\Cms\RegisterFilamentServiceProviderTask;
+use HardImpact\Launch\Setup\Cms\RunFilamentPublishAssetsTask;
+use HardImpact\Launch\Setup\Cms\RunSetupAuthTask;
+use HardImpact\Launch\Setup\Tasks\GenerateRoutesTask;
 use Illuminate\Filesystem\Filesystem;
 
 class SetupCms extends Setup

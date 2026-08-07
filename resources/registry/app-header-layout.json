@@ -3,11 +3,11 @@
   "name": "app-header-layout",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/app-shell",
-    "@craft/app-header",
-    "@craft/app-content",
-    "@craft/breadcrumb",
-    "@craft/craft-types"
+    "@launch/app-shell",
+    "@launch/app-header",
+    "@launch/app-content",
+    "@launch/breadcrumb",
+    "@launch/launch-types"
   ],
   "files": [
     {

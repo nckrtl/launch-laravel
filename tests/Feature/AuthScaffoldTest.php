@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
-use HardImpact\Craft\Setup\Auth\CleanupLegacyAuthVueFilesTask;
-use HardImpact\Craft\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
-use HardImpact\Craft\Setup\Auth\InstallAuthComposerPackagesTask;
-use HardImpact\Craft\Setup\Auth\InstallAuthReactScaffoldTask;
-use HardImpact\Craft\Setup\Cms\ConfigureFilamentAuthRedirectTask;
-use HardImpact\Craft\Setup\Cms\InstallNpmPackagesTask;
-use HardImpact\Craft\Setup\Cms\RunSetupAuthTask;
-use HardImpact\Craft\Setup\SetupAuth;
-use HardImpact\Craft\Setup\SetupCms;
+use HardImpact\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
+use HardImpact\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
+use HardImpact\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
+use HardImpact\Launch\Setup\Auth\InstallAuthReactScaffoldTask;
+use HardImpact\Launch\Setup\Cms\ConfigureFilamentAuthRedirectTask;
+use HardImpact\Launch\Setup\Cms\InstallNpmPackagesTask;
+use HardImpact\Launch\Setup\Cms\RunSetupAuthTask;
+use HardImpact\Launch\Setup\SetupAuth;
+use HardImpact\Launch\Setup\SetupCms;
 use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
@@ -127,7 +127,7 @@ it('does not generate App\\Facades\\App references in scaffolded files', functio
 describe('CopyAppClassTask', function () {
     it('replaces namespace placeholder correctly when copying App.php', function () {
         $filesystem = new Filesystem;
-        $tempDir = sys_get_temp_dir().'/craft-test-'.uniqid();
+        $tempDir = sys_get_temp_dir().'/launch-test-'.uniqid();
 
         // Create temp directory structure
         $filesystem->makeDirectory($tempDir.'/app', 0755, true);
@@ -241,7 +241,7 @@ describe('CopyAuthTestsTask', function () {
 
     it('generates valid PHP syntax after namespace replacement', function () {
         $filesystem = new Filesystem;
-        $tempDir = sys_get_temp_dir().'/craft-test-'.uniqid();
+        $tempDir = sys_get_temp_dir().'/launch-test-'.uniqid();
         $filesystem->makeDirectory($tempDir.'/tests/Feature/Auth', 0755, true);
 
         $packageRoot = dirname(__DIR__, 2);
@@ -566,7 +566,7 @@ describe('Filament auth scaffold integration', function () {
     it('respects the package manager configured by the host project', function () {
         $filesystem = new Filesystem;
         $originalBasePath = app()->basePath();
-        $temporaryBasePath = sys_get_temp_dir().'/craft-package-manager-'.uniqid();
+        $temporaryBasePath = sys_get_temp_dir().'/launch-package-manager-'.uniqid();
 
         $filesystem->ensureDirectoryExists($temporaryBasePath);
         $filesystem->put("{$temporaryBasePath}/package.json", json_encode([
@@ -611,7 +611,7 @@ describe('Filament auth scaffold integration', function () {
             ->toContain('class AuthenticateFilament extends FilamentAuthenticate')
             ->toContain("return route('login');");
 
-        $tempDir = sys_get_temp_dir().'/craft-filament-auth-test-'.uniqid();
+        $tempDir = sys_get_temp_dir().'/launch-filament-auth-test-'.uniqid();
         $filesystem->makeDirectory($tempDir, 0755, true);
 
         foreach ([
@@ -702,8 +702,8 @@ describe('React auth scaffold installation', function () {
         $method = new ReflectionMethod($task, 'registryPath');
 
         expect("{$packageRoot}/resources/registry/registry.json")->toBeFile()
-            ->and("{$packageRoot}/resources/registry/craft-auth-scaffold.json")->toBeFile()
-            ->and("{$packageRoot}/resources/registry/craft-app-scaffold.json")->toBeFile()
+            ->and("{$packageRoot}/resources/registry/launch-auth-scaffold.json")->toBeFile()
+            ->and("{$packageRoot}/resources/registry/launch-app-scaffold.json")->toBeFile()
             ->and($method->invoke($task))->toBe("{$packageRoot}/resources/registry");
     });
 
@@ -733,7 +733,7 @@ describe('React auth scaffold installation', function () {
             $item = json_decode(file_get_contents($itemPath), true, flags: JSON_THROW_ON_ERROR);
 
             foreach ($item['registryDependencies'] ?? [] as $dependency) {
-                if (! str_starts_with($dependency, '@craft/')) {
+                if (! str_starts_with($dependency, '@launch/')) {
                     continue;
                 }
 
@@ -783,9 +783,9 @@ describe('React auth scaffold installation', function () {
             ->toContain("'non_inertia_paths' => [");
     });
 
-    it('preserves route and page aliases while installing Craft registry items', function () {
+    it('preserves route and page aliases while installing Launch registry items', function () {
         $filesystem = new Filesystem;
-        $tempDir = sys_get_temp_dir().'/craft-components-test-'.uniqid();
+        $tempDir = sys_get_temp_dir().'/launch-components-test-'.uniqid();
         $componentsPath = "{$tempDir}/components.json";
 
         $filesystem->makeDirectory($tempDir, 0755, true);
@@ -800,7 +800,7 @@ describe('React auth scaffold installation', function () {
         ], JSON_PRETTY_PRINT));
 
         $task = new InstallAuthReactScaffoldTask($filesystem);
-        $method = new ReflectionMethod($task, 'pointCraftRegistryAtLocalServer');
+        $method = new ReflectionMethod($task, 'pointLaunchRegistryAtLocalServer');
         $method->setAccessible(true);
         $method->invoke($task, $componentsPath, 41000);
 
@@ -813,16 +813,16 @@ describe('React auth scaffold installation', function () {
         $filesystem->deleteDirectory($tempDir);
     });
 
-    it('runs the local Craft registry server with multiple workers', function () {
+    it('runs the local Launch registry server with multiple workers', function () {
         $task = new InstallAuthReactScaffoldTask(new Filesystem);
         $method = new ReflectionMethod($task, 'registryServerProcess');
         $method->setAccessible(true);
 
-        $process = $method->invoke($task, '/tmp/craft-registry', 41000);
+        $process = $method->invoke($task, '/tmp/launch-registry', 41000);
 
         expect($process->getCommandLine())
             ->toContain('127.0.0.1:41000')
-            ->toContain('/tmp/craft-registry')
+            ->toContain('/tmp/launch-registry')
             ->and($process->getEnv())
             ->toHaveKey('PHP_CLI_SERVER_WORKERS', '8');
     });
@@ -832,7 +832,7 @@ describe('React auth scaffold installation', function () {
         $method = new ReflectionMethod($task, 'registryServerProcess');
         $method->setAccessible(true);
 
-        $process = $method->invoke($task, '/tmp/craft-registry', 41000);
+        $process = $method->invoke($task, '/tmp/launch-registry', 41000);
         $process->disableOutput();
 
         expect($process->isOutputDisabled())->toBeTrue();
@@ -867,7 +867,7 @@ describe('React auth scaffold installation', function () {
 
     it('normalizes shadcn-rewritten route and page imports after installation', function () {
         $filesystem = new Filesystem;
-        $tempDir = sys_get_temp_dir().'/craft-import-normalize-test-'.uniqid();
+        $tempDir = sys_get_temp_dir().'/launch-import-normalize-test-'.uniqid();
         $filePath = "{$tempDir}/resources/js/pages/auth/login.tsx";
         $twoFactorFilePath = "{$tempDir}/resources/js/pages/auth/two-factor-challenge.tsx";
 
@@ -922,7 +922,7 @@ TSX);
     it('configures only the auth-owned layout in the frontend bootstrap', function () {
         $filesystem = new Filesystem;
         $originalBasePath = app()->basePath();
-        $temporaryBasePath = sys_get_temp_dir().'/craft-auth-bootstrap-'.uniqid();
+        $temporaryBasePath = sys_get_temp_dir().'/launch-auth-bootstrap-'.uniqid();
         $appPath = "{$temporaryBasePath}/resources/js/app.tsx";
         $contents = <<<'TSX'
 import "../css/app.css";

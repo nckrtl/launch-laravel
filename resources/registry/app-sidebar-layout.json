@@ -3,12 +3,12 @@
   "name": "app-sidebar-layout",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/app-shell",
-    "@craft/app-sidebar",
-    "@craft/app-content",
-    "@craft/app-sidebar-header",
-    "@craft/craft-types",
-    "@craft/sonner"
+    "@launch/app-shell",
+    "@launch/app-sidebar",
+    "@launch/app-content",
+    "@launch/app-sidebar-header",
+    "@launch/launch-types",
+    "@launch/sonner"
   ],
   "files": [
     {

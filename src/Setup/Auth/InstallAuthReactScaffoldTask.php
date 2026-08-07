@@ -2,19 +2,19 @@
 
 declare(strict_types=1);
 
-namespace HardImpact\Craft\Setup\Auth;
+namespace HardImpact\Launch\Setup\Auth;
 
-use HardImpact\Craft\Setup\Tasks\InstallCraftReactRegistryItemsTask;
+use HardImpact\Launch\Setup\Tasks\InstallLaunchReactRegistryItemsTask;
 
-class InstallAuthReactScaffoldTask extends InstallCraftReactRegistryItemsTask
+class InstallAuthReactScaffoldTask extends InstallLaunchReactRegistryItemsTask
 {
     protected function items(): array
     {
-        return ['@craft/craft-auth-scaffold'];
+        return ['@launch/launch-auth-scaffold'];
     }
 
     public function description(): string
     {
-        return 'Installing React authentication scaffold from Craft UI';
+        return 'Installing React authentication scaffold from Launch UI';
     }
 }

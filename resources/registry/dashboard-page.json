@@ -5,7 +5,7 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/app-layout"
+    "@launch/app-layout"
   ],
   "files": [
     {

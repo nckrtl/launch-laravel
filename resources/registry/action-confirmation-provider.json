@@ -5,7 +5,7 @@
     "@inertiajs/react"
   ],
   "registryDependencies": [
-    "@craft/confirm-action",
+    "@launch/confirm-action",
     "button",
     "dialog",
     "input",

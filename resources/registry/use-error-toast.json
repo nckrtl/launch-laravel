@@ -3,7 +3,7 @@
   "name": "use-error-toast",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/form-errors"
+    "@launch/form-errors"
   ],
   "files": [
     {

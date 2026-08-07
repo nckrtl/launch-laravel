@@ -5,7 +5,7 @@
   "registryDependencies": [
     "sidebar",
     "separator",
-    "@craft/breadcrumbs"
+    "@launch/breadcrumbs"
   ],
   "files": [
     {

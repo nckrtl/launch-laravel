@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "craft-types",
+  "name": "launch-types",
   "dependencies": [
     "@inertiajs/react",
     "lucide-react"

@@ -3,8 +3,8 @@
   "name": "alert-error",
   "dependencies": [],
   "registryDependencies": [
-    "@craft/alert",
-    "@craft/use-error-toast"
+    "@launch/alert",
+    "@launch/use-error-toast"
   ],
   "files": [
     {
