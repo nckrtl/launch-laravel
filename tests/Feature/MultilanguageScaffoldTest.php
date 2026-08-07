@@ -23,7 +23,7 @@ describe('multilanguage scaffold', function () {
             ->not->toBeFile();
 
         expect(file_get_contents("{$packageRoot}/resources/stubs/multi-language/resources/js/pages/TranslationExample.tsx"))
-            ->toContain('@hardimpactdev/launch-ui/i18n')
+            ->toContain('@nckrtl/launch-ui/i18n')
             ->toContain('setLocale')
             ->toContain('useLocale');
     });
@@ -46,7 +46,7 @@ describe('multilanguage scaffold', function () {
         $originalBasePath = app()->basePath();
         $temporaryBasePath = sys_get_temp_dir().'/launch-i18n-'.uniqid();
         $viteConfig = <<<'TYPESCRIPT'
-import { defineLaunchConfig } from "@hardimpactdev/launch-ui/vite";
+import { defineLaunchConfig } from "@nckrtl/launch-ui/vite";
 
 export default await defineLaunchConfig();
 TYPESCRIPT;
@@ -72,7 +72,7 @@ TYPESCRIPT;
         $originalBasePath = app()->basePath();
         $temporaryBasePath = sys_get_temp_dir().'/launch-i18n-'.uniqid();
         $viteConfig = <<<'TYPESCRIPT'
-import { defineLaunchConfig } from "@hardimpactdev/launch-ui/vite";
+import { defineLaunchConfig } from "@nckrtl/launch-ui/vite";
 
 export default await defineLaunchConfig({
     wayfinder: {

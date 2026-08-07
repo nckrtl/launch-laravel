@@ -1,10 +1,10 @@
 # Launch Laravel
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/hardimpactdev/launch-laravel.svg?style=flat-square)](https://packagist.org/packages/hardimpactdev/launch-laravel)
-[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/hardimpactdev/launch-laravel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/hardimpactdev/launch-laravel/actions/workflows/run-tests.yml)
-[![Total Downloads](https://img.shields.io/packagist/dt/hardimpactdev/launch-laravel.svg?style=flat-square)](https://packagist.org/packages/hardimpactdev/launch-laravel)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/nckrtl/launch-laravel.svg?style=flat-square)](https://packagist.org/packages/nckrtl/launch-laravel)
+[![GitHub Tests Action Status](https://img.shields.io/github/actions/workflow/status/nckrtl/launch-laravel/run-tests.yml?branch=main&label=tests&style=flat-square)](https://github.com/nckrtl/launch-laravel/actions/workflows/run-tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/nckrtl/launch-laravel.svg?style=flat-square)](https://packagist.org/packages/nckrtl/launch-laravel)
 
-React, authentication, Filament, and localization scaffolding for the [Launch React starterkit](https://github.com/hardimpactdev/launch-starter-kit).
+React, authentication, Filament, and localization scaffolding for the [Launch React starterkit](https://github.com/nckrtl/launch-starter-kit).
 
 ## Requirements
 
@@ -16,7 +16,7 @@ React, authentication, Filament, and localization scaffolding for the [Launch Re
 ## Installation
 
 ```bash
-composer require hardimpactdev/launch-laravel
+composer require nckrtl/launch-laravel
 ```
 
 ## Setups

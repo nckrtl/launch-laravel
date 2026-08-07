@@ -1,6 +1,6 @@
 {
   "plugins": {
-    "marketplace": "hardimpactdev/claude-plugins",
+    "marketplace": "nckrtl/claude-plugins",
     "installed": [
       "launch-laravel",
       "php-quality",

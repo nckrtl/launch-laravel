@@ -1,5 +1,5 @@
 import { Head } from "@inertiajs/react";
-import { __, setLocale, useLocale } from "@hardimpactdev/launch-ui/i18n";
+import { __, setLocale, useLocale } from "@nckrtl/launch-ui/i18n";
 
 export default function TranslationExample() {
     const locale = useLocale();

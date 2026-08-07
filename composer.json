@@ -1,5 +1,5 @@
 {
-    "name": "hardimpactdev/launch-laravel",
+    "name": "nckrtl/launch-laravel",
     "description": "React, authentication, Filament, and localization scaffolding for Launch Laravel applications",
     "keywords": [
         "launch",
@@ -8,7 +8,7 @@
         "react",
         "scaffolding"
     ],
-    "homepage": "https://github.com/hardimpactdev/launch-laravel",
+    "homepage": "https://github.com/nckrtl/launch-laravel",
     "license": "MIT",
     "authors": [
         {

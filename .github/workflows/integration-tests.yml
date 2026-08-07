@@ -42,7 +42,7 @@ jobs:
       - name: Checkout Launch React starterkit
         uses: actions/checkout@v4
         with:
-          repository: hardimpactdev/launch-starter-kit
+          repository: nckrtl/launch-starter-kit
           token: ${{ secrets.GH_PAT }}
           path: starterkit
 
@@ -64,7 +64,7 @@ jobs:
         working-directory: starterkit
         run: |
           composer config repositories.launch-laravel path ../launch-laravel
-          composer require hardimpactdev/launch-laravel:@dev --with-all-dependencies --prefer-dist --no-interaction
+          composer require nckrtl/launch-laravel:@dev --with-all-dependencies --prefer-dist --no-interaction
 
       - name: Install frontend dependencies
         working-directory: starterkit

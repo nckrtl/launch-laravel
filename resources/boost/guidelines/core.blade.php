@@ -1,6 +1,6 @@
 ## Launch Laravel
 
-Launch Laravel scaffolds React applications built from `hardimpactdev/launch-starter-kit`.
+Launch Laravel scaffolds React applications built from `nckrtl/launch-starter-kit`.
 
 ### Choose a setup
 

@@ -1,6 +1,6 @@
 # Launch Laravel Package
 
-Laravel 12/13 scaffolding for the React-based [Launch starterkit](https://github.com/hardimpactdev/launch-starter-kit).
+Laravel 12/13 scaffolding for the React-based [Launch starterkit](https://github.com/nckrtl/launch-starter-kit).
 
 ## Public API
 
