@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Settings;
+namespace {{namespace}}Http\Controllers\Settings;
 
-use App\Http\Controllers\Controller;
-use App\Http\Requests\Settings\ProfileUpdateRequest;
+use {{namespace}}Http\Controllers\Controller;
+use {{namespace}}Http\Requests\Settings\ProfileUpdateRequest;
 use HardImpact\Waymaker\Delete;
 use HardImpact\Waymaker\Get;
 use HardImpact\Waymaker\Patch;
@@ -18,13 +18,18 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
+    public static string $routePrefix = 'settings';
+
     /**
      * Show the user's profile settings page.
      */
-    #[Get(uri: '/settings/profile', middleware: 'auth')]
+    #[Get(uri: 'profile', middleware: 'auth')]
     public function edit(Request $request): Response
     {
-        return Inertia::render('settings/Profile', [
+        return Inertia::render('settings/profile', [
+            'auth' => [
+                'user' => $request->user(),
+            ],
             'mustVerifyEmail' => $request->user() instanceof Authenticatable,
             'status' => $request->session()->get('status'),
         ]);
@@ -33,7 +38,7 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    #[Patch(uri: '/settings/profile', middleware: 'auth')]
+    #[Patch(uri: 'profile', middleware: 'auth')]
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()?->fill($request->validated());
@@ -44,13 +49,13 @@ class ProfileController extends Controller
 
         $request->user()?->save();
 
-        return to_route('profile.edit');
+        return to_route('Settings.ProfileController.edit');
     }
 
     /**
      * Delete the user's profile.
      */
-    #[Delete(uri: '/settings/profile', middleware: 'auth')]
+    #[Delete(uri: 'profile', middleware: 'auth')]
     public function destroy(Request $request): RedirectResponse
     {
         $request->validate([

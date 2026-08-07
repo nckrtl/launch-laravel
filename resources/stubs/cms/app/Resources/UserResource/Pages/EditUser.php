@@ -19,12 +19,15 @@ class EditUser extends EditRecord
         ];
     }
 
-    protected function mutateFormDataBeforeSave(array $data): array
+    protected function mutateFormDataBeforeFill(array $data): array
     {
-        if ($data['password'] === null) {
-            unset($data['password']);
-        }
+        $data['password'] = null;
 
         return $data;
+    }
+
+    protected function afterSave(): void
+    {
+        $this->refreshFormData(['password']);
     }
 }

@@ -2,18 +2,20 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Controllers\Settings;
+namespace {{namespace}}Http\Controllers\Settings;
 
-use App\Http\Controllers\Controller;
+use {{namespace}}Http\Controllers\Controller;
 use HardImpact\Waymaker\Get;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class AppearanceController extends Controller
 {
-    #[Get(uri: '/settings/appearance', name: 'appearance', middleware: 'auth')]
+    public static string $routePrefix = 'settings';
+
+    #[Get(uri: 'appearance', name: 'appearance', middleware: 'auth')]
     public function edit(): Response
     {
-        return Inertia::render('settings/Appearance');
+        return Inertia::render('settings/appearance');
     }
 }

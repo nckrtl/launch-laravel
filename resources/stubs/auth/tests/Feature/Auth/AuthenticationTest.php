@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace Tests\Feature\Auth;
 
-use App\Models\User;
+use {{namespace}}Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Inertia\Testing\AssertableInertia as Assert;
 use Tests\TestCase;
 
 class AuthenticationTest extends TestCase
@@ -52,5 +53,18 @@ class AuthenticationTest extends TestCase
 
         $this->assertGuest();
         $response->assertRedirect('/');
+    }
+
+    public function test_two_factor_challenge_screen_can_be_rendered()
+    {
+        $response = $this->withSession([
+            'login.id' => User::factory()->create()->getKey(),
+            'login.remember' => false,
+        ])->get('/two-factor-challenge');
+
+        $response
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page
+                ->component('auth/two-factor-challenge'));
     }
 }

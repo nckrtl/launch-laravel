@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace HardImpact\Craft\Commands;
 
 use HardImpact\Craft\Setup\SetupApp;
+use HardImpact\Craft\Setup\SetupAuth;
+use HardImpact\Craft\Setup\SetupDashboard;
 use HardImpact\Craft\Setup\SetupFilament;
 use HardImpact\Craft\Setup\SetupInterface;
 use HardImpact\Craft\Setup\SetupMultilanguage;
@@ -15,11 +17,13 @@ class SetupCommand extends Command
 {
     private const array SETUPS = [
         'app' => SetupApp::class,
+        'auth' => SetupAuth::class,
+        'dashboard' => SetupDashboard::class,
         'filament' => SetupFilament::class,
         'multilanguage' => SetupMultilanguage::class,
     ];
 
-    protected $signature = 'craft:setup {type : The type of setup to run (app, filament, multilanguage)}';
+    protected $signature = 'craft:setup {type : The type of setup to run (app, auth, dashboard, filament, multilanguage)}';
 
     protected $description = 'Setup Craft features';
 
@@ -44,20 +48,21 @@ class SetupCommand extends Command
 
     public function handle(): int
     {
-        $type = $this->argument('type');
+        return $this->runSetup((string) $this->argument('type'), $this);
+    }
 
+    public function runSetup(string $type, Command $command): int
+    {
         $setup = $this->resolveSetup($type);
 
         if (! $setup) {
-            $this->error("Setup for '{$type}' not found.");
+            $command->error("Setup for '{$type}' not found.");
 
             return 1;
         }
 
-        // Pass this command instance to the setup
-        $setup->setCommand($this);
+        $setup->setCommand($command);
 
-        // Run the setup
         return $setup->setup();
     }
 

@@ -3,6 +3,7 @@
 namespace HardImpact\Craft;
 
 use Carbon\CarbonImmutable;
+use HardImpact\Craft\Commands\CraftCommand;
 use HardImpact\Craft\Commands\SetupCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Vite;
@@ -27,7 +28,12 @@ class LaravelServiceProvider extends PackageServiceProvider
         $package
             ->name('laravel')
             ->hasConfigFile()
-            ->hasMigration('create_users_table')
+            ->hasMigrations([
+                'create_users_table',
+                'add_two_factor_columns_to_users_table',
+                'create_passkeys_table',
+            ])
+            ->hasCommand(CraftCommand::class)
             ->hasCommand(SetupCommand::class);
     }
 

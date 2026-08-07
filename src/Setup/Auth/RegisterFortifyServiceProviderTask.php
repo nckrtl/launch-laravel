@@ -33,9 +33,11 @@ class RegisterFortifyServiceProviderTask extends Task
 
         $content = $this->filesystem->get($bootstrapPath);
         $providerClass = 'App\\Providers\\FortifyServiceProvider::class';
+        $content = $this->ensurePasskeysProvider($content);
 
         // Check if provider is already registered
         if (str_contains($content, $providerClass)) {
+            $this->filesystem->put($bootstrapPath, $content);
             $this->info('FortifyServiceProvider is already registered.');
 
             return true;
@@ -72,5 +74,26 @@ class RegisterFortifyServiceProviderTask extends Task
     public function description(): string
     {
         return 'Registering FortifyServiceProvider';
+    }
+
+    private function ensurePasskeysProvider(string $content): string
+    {
+        if (! str_contains($content, 'use Laravel\\Passkeys\\PasskeysServiceProvider;')) {
+            $content = str_replace(
+                "use App\\Providers\\ToolbarConfigProvider;\n",
+                "use App\\Providers\\ToolbarConfigProvider;\nuse Laravel\\Passkeys\\PasskeysServiceProvider;\n",
+                $content
+            );
+        }
+
+        if (! str_contains($content, 'PasskeysServiceProvider::class')) {
+            $content = str_replace(
+                "    AppServiceProvider::class,\n",
+                "    AppServiceProvider::class,\n    PasskeysServiceProvider::class,\n",
+                $content
+            );
+        }
+
+        return $content;
     }
 }

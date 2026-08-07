@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App;
+namespace {{namespace}};
 
 class App
 {
     public static function getRedirectRouteAfterLogin(): string
     {
-        return 'Controllers.DashboardController.show';
+        return 'filament.admin.pages.dashboard';
     }
 }

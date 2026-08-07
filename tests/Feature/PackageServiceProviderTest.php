@@ -3,8 +3,11 @@
 declare(strict_types=1);
 
 use HardImpact\Craft\Commands\SetupCommand;
+use HardImpact\Craft\Commands\CraftCommand;
 use HardImpact\Craft\LaravelServiceProvider;
 use HardImpact\Craft\Setup\SetupApp;
+use HardImpact\Craft\Setup\SetupAuth;
+use HardImpact\Craft\Setup\SetupDashboard;
 use HardImpact\Craft\Setup\SetupFilament;
 use HardImpact\Craft\Setup\SetupMultilanguage;
 use Illuminate\Filesystem\Filesystem;
@@ -17,6 +20,10 @@ describe('package service provider', function () {
         expect(str_starts_with(app()->version(), '13.'))->toBeTrue();
         expect(config('laravel.defaults.strict_models'))->toBeTrue();
         expect(Artisan::all())
+            ->toHaveKey('craft')
+            ->and(Artisan::all()['craft'])
+            ->toBeInstanceOf(CraftCommand::class)
+            ->and(Artisan::all())
             ->toHaveKey('craft:setup')
             ->and(Artisan::all()['craft:setup'])
             ->toBeInstanceOf(SetupCommand::class);
@@ -29,6 +36,20 @@ describe('package service provider', function () {
             ->assertExitCode(1);
     });
 
+    it('runs the craft command missing action without crashing', function () {
+        $this
+            ->artisan('craft missing')
+            ->expectsOutput("Craft action 'missing' not found.")
+            ->assertExitCode(1);
+    });
+
+    it('runs the craft setup action missing setup path without crashing', function () {
+        $this
+            ->artisan('craft setup:missing')
+            ->expectsOutput("Setup for 'missing' not found.")
+            ->assertExitCode(1);
+    });
+
     it('only resolves the supported setup commands', function () {
         $command = new SetupCommand(app(Filesystem::class));
         $method = new ReflectionMethod($command, 'resolveSetup');
@@ -36,10 +57,12 @@ describe('package service provider', function () {
         $resolve = fn (string $type): ?object => $method->invoke($command, $type);
 
         expect($resolve('app'))->toBeInstanceOf(SetupApp::class)
+            ->and($resolve('auth'))->toBeInstanceOf(SetupAuth::class)
+            ->and($resolve('dashboard'))->toBeInstanceOf(SetupDashboard::class)
             ->and($resolve('filament'))->toBeInstanceOf(SetupFilament::class)
             ->and($resolve('multilanguage'))->toBeInstanceOf(SetupMultilanguage::class);
 
-        foreach (['auth', 'dashboard', 'cms', 'task-tracking', 'missing'] as $type) {
+        foreach (['cms', 'task-tracking', 'missing'] as $type) {
             expect($resolve($type))->toBeNull();
         }
     });

@@ -5,7 +5,6 @@ namespace HardImpact\Craft\Setup\Auth;
 use HardImpact\Craft\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
-use Illuminate\Support\Facades\Artisan;
 
 class PublishMigrationsTask extends Task
 {
@@ -26,52 +25,33 @@ class PublishMigrationsTask extends Task
     {
         $this->info('Publishing authentication migrations...');
 
-        // For Spatie's Laravel Package Tools, the tag is "package-name-migrations"
-        $exitCode = Artisan::call('vendor:publish', [
-            '--tag' => 'laravel-migrations',
-            '--force' => true,
-        ]);
+        $packageMigrationPath = __DIR__.'/../../../database/migrations';
+        $destinationPath = database_path('migrations');
+        $migrations = [
+            'add_two_factor_columns_to_users_table.php' => '2026_07_01_000001_add_two_factor_columns_to_users_table.php',
+            'create_passkeys_table.php' => '2026_07_01_000002_create_passkeys_table.php',
+        ];
 
-        if ($exitCode !== Command::SUCCESS) {
-            $this->error('Failed to publish migrations using the package tag. Trying alternative method...');
+        if (! $this->filesystem->isDirectory($packageMigrationPath)) {
+            $this->error("Migration source directory not found: {$packageMigrationPath}");
 
-            // Get the package's migration directory
-            $packageMigrationPath = __DIR__.'/../../../../database/migrations';
-            $destinationPath = database_path('migrations');
+            return false;
+        }
 
-            // Check if the directory exists
-            if (! $this->filesystem->isDirectory($packageMigrationPath)) {
-                $this->error("Migration source directory not found: {$packageMigrationPath}");
+        $this->filesystem->ensureDirectoryExists($destinationPath);
 
-                return false;
+        foreach ($migrations as $source => $destination) {
+            if ($this->migrationExists($destinationPath, $source)) {
+                $this->info("Migration {$source} already exists. Skipping.");
+
+                continue;
             }
 
-            // Copy migrations manually
-            $files = $this->filesystem->files($packageMigrationPath);
-            $hasCopiedFiles = false;
-
-            foreach ($files as $file) {
-                $fileName = $file->getFilename();
-                $destinationFile = $destinationPath.'/'.date('Y_m_d_His_').substr($fileName, strpos($fileName, '_') + 1);
-
-                // Skip if migration already exists
-                if ($this->migrationExists($destinationPath, $fileName)) {
-                    $this->info("Migration {$fileName} already exists. Skipping.");
-
-                    continue;
-                }
-
-                // Copy the file
-                $this->filesystem->copy($file->getPathname(), $destinationFile);
-                $this->info("Copied migration: {$fileName}");
-                $hasCopiedFiles = true;
-            }
-
-            if (! $hasCopiedFiles) {
-                $this->info('No new migrations to copy.');
-            }
-
-            return true;
+            $this->filesystem->copy(
+                $packageMigrationPath.'/'.$source,
+                $destinationPath.'/'.$destination
+            );
+            $this->info("Copied migration: {$destination}");
         }
 
         $this->info('Migrations published successfully.');

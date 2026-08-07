@@ -1,5 +1,5 @@
 import type { PageProps } from "@inertiajs/core";
-import type { LucideIcon } from "lucide-vue-next";
+import type { LucideIcon } from "lucide-react";
 
 export interface Auth {
     user: User;
@@ -40,3 +40,10 @@ export interface User {
 }
 
 export type BreadcrumbItemType = BreadcrumbItem;
+export type {
+    AppLayoutProps,
+    AuthLayoutProps,
+    Passkey,
+    TwoFactorSecretKey,
+    TwoFactorSetupData,
+} from "@/lib/types";

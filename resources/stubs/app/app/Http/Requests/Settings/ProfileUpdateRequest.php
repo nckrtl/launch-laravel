@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Http\Requests\Settings;
+namespace {{namespace}}Http\Requests\Settings;
 
-use App\Models\User;
+use {{namespace}}Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 

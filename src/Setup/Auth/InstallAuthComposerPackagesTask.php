@@ -1,0 +1,52 @@
+<?php
+
+declare(strict_types=1);
+
+namespace HardImpact\Craft\Setup\Auth;
+
+use HardImpact\Craft\Setup\Tasks\Task;
+use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
+use Symfony\Component\Process\Process;
+
+class InstallAuthComposerPackagesTask extends Task
+{
+    public function __construct(Filesystem $filesystem, ?Command $command = null)
+    {
+        parent::__construct($filesystem, $command);
+    }
+
+    public function run(): bool
+    {
+        $this->info('Installing auth Composer packages...');
+
+        $process = new Process([
+            'composer',
+            'require',
+            'wnx/laravel-tfa-confirmation:^1.0',
+            '-W',
+        ], base_path());
+        $process->setTimeout(300);
+
+        if ($this->command) {
+            $process->run(fn ($type, $buffer) => $this->command->line($buffer));
+        } else {
+            $process->run();
+        }
+
+        if (! $process->isSuccessful()) {
+            $this->error('Failed to install auth Composer packages: '.$process->getErrorOutput());
+
+            return false;
+        }
+
+        $this->info('Auth Composer packages installed successfully.');
+
+        return true;
+    }
+
+    public function description(): string
+    {
+        return 'Installing auth Composer packages';
+    }
+}
