@@ -35,12 +35,12 @@ jobs:
 
     steps:
       - name: Checkout Launch Laravel
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           path: launch-laravel
 
       - name: Checkout Launch React starterkit
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: nckrtl/launch-starter-kit
           token: ${{ secrets.GH_PAT }}
