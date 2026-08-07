@@ -2,6 +2,10 @@
 
 All notable changes to `launch-laravel` will be documented in this file.
 
+## v0.3.9 - 2026-08-07
+
+**Full Changelog**: https://github.com/nckrtl/launch-laravel/compare/v0.3.8...v0.3.9
+
 ## v0.3.8 - 2026-08-07
 
 **Full Changelog**: https://github.com/nckrtl/launch-laravel/compare/v0.3.7...v0.3.8
