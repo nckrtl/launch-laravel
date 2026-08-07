@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Commands;
 
+use Illuminate\Console\Command;
+use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\SetupApp;
 use NckRtl\Launch\Setup\SetupFilament;
 use NckRtl\Launch\Setup\SetupInterface;
 use NckRtl\Launch\Setup\SetupMultilanguage;
-use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 
 class SetupCommand extends Command
 {

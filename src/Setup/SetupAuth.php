@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Setup;
 
+use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
 use NckRtl\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
 use NckRtl\Launch\Setup\Auth\ConfigurePasskeysTask;
@@ -19,7 +20,6 @@ use NckRtl\Launch\Setup\Auth\RegisterPasskeyRoutesTask;
 use NckRtl\Launch\Setup\Auth\UpdateDatabaseSeederTask;
 use NckRtl\Launch\Setup\Auth\UpdateUserModelTask;
 use NckRtl\Launch\Setup\Auth\UpdateUsersMigrationTask;
-use Illuminate\Filesystem\Filesystem;
 
 class SetupAuth extends Setup
 {

@@ -2,15 +2,15 @@
 
 declare(strict_types=1);
 
+use Illuminate\Filesystem\Filesystem;
+use Illuminate\Foundation\Vite;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Http;
 use NckRtl\Launch\Commands\SetupCommand;
 use NckRtl\Launch\LaravelServiceProvider;
 use NckRtl\Launch\Setup\SetupApp;
 use NckRtl\Launch\Setup\SetupFilament;
 use NckRtl\Launch\Setup\SetupMultilanguage;
-use Illuminate\Filesystem\Filesystem;
-use Illuminate\Foundation\Vite;
-use Illuminate\Support\Facades\Artisan;
-use Illuminate\Support\Facades\Http;
 
 describe('package service provider', function () {
     it('boots on supported Laravel versions and registers its setup command', function () {

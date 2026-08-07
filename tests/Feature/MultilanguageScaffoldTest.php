@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
+use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\MultiLanguage\ConfigureI18nTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyExamplePageTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
 use NckRtl\Launch\Setup\SetupMultilanguage;
 use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
-use Illuminate\Filesystem\Filesystem;
 
 describe('multilanguage scaffold', function () {
     it('ships translations and an example page for the React starterkit', function () {

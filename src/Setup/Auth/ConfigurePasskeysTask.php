@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Setup\Auth;
 
-use NckRtl\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use NckRtl\Launch\Setup\Tasks\Task;
 
 class ConfigurePasskeysTask extends Task
 {

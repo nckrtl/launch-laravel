@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Setup;
 
+use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\App\CopyAppClassTask;
 use NckRtl\Launch\Setup\App\CopyAppControllersTask;
 use NckRtl\Launch\Setup\App\CopyAppMiddlewareTask;
@@ -13,7 +14,6 @@ use NckRtl\Launch\Setup\App\CopyFrontendBootstrapTask;
 use NckRtl\Launch\Setup\App\InstallAppReactScaffoldTask;
 use NckRtl\Launch\Setup\App\RunSetupAuthTask;
 use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
-use Illuminate\Filesystem\Filesystem;
 
 class SetupApp extends Setup
 {

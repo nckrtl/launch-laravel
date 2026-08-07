@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Setup\Cms;
 
-use NckRtl\Launch\Setup\SetupAuth;
-use NckRtl\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use NckRtl\Launch\Setup\SetupAuth;
+use NckRtl\Launch\Setup\Tasks\Task;
 
 class RunSetupAuthTask extends Task
 {

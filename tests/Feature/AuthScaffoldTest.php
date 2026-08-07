@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\Auth\CleanupLegacyAuthVueFilesTask;
 use NckRtl\Launch\Setup\Auth\ConfigureAuthFrontendBootstrapTask;
 use NckRtl\Launch\Setup\Auth\InstallAuthComposerPackagesTask;
@@ -11,7 +12,6 @@ use NckRtl\Launch\Setup\Cms\InstallNpmPackagesTask;
 use NckRtl\Launch\Setup\Cms\RunSetupAuthTask;
 use NckRtl\Launch\Setup\SetupAuth;
 use NckRtl\Launch\Setup\SetupCms;
-use Illuminate\Filesystem\Filesystem;
 use Symfony\Component\Process\Process;
 
 /**

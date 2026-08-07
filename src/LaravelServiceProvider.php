@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace NckRtl\Launch;
 
 use Carbon\CarbonImmutable;
-use NckRtl\Launch\Commands\SetupCommand;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Vite;
 use Illuminate\Support\Facades\Date;
@@ -14,6 +13,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Sleep;
 use Illuminate\Validation\Rules\Password;
+use NckRtl\Launch\Commands\SetupCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 

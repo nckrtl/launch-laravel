@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Setup\App;
 
-use NckRtl\Launch\Setup\Tasks\Task;
 use Illuminate\Console\Command;
 use Illuminate\Filesystem\Filesystem;
+use NckRtl\Launch\Setup\Tasks\Task;
 
 class CopyAppClassTask extends Task
 {

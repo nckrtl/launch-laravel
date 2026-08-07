@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace NckRtl\Launch\Setup;
 
+use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\MultiLanguage\ConfigureI18nTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyExamplePageTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
 use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
-use Illuminate\Filesystem\Filesystem;
 
 class SetupMultilanguage extends Setup
 {
