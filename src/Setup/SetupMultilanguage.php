@@ -8,7 +8,6 @@ use Illuminate\Filesystem\Filesystem;
 use NckRtl\Launch\Setup\MultiLanguage\ConfigureI18nTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyExamplePageTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
-use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 
 class SetupMultilanguage extends Setup
 {
@@ -24,7 +23,6 @@ class SetupMultilanguage extends Setup
         CopyLangDirectoryTask::class,
         CopyExamplePageTask::class,
         ConfigureI18nTask::class,
-        GenerateRoutesTask::class,
     ];
 
     /**

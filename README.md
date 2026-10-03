@@ -40,7 +40,7 @@ php artisan migrate
 npm run build
 ```
 
-The generated application includes Fortify login and registration, password reset, email verification, passkeys, two-factor confirmation, dashboard and account settings pages, Waymaker controllers, Wayfinder imports, and feature tests.
+The generated application includes Fortify login and registration, password reset, email verification, passkeys, two-factor confirmation, dashboard and account settings pages, controllers, Wayfinder imports, and feature tests. The setup adds the dashboard route to `routes/web.php` and writes the settings routes to `routes/settings.php`. Routes use conventional names, such as `dashboard` and `settings.profile.edit`.
 
 ### Filament setup
 
@@ -63,7 +63,7 @@ npm run build
 
 This creates `lang/en.json`, `lang/nl.json`, and `resources/js/pages/TranslationExample.tsx`, then enables `i18n` in `vite.config.ts`.
 
-All setups generate Waymaker routes and are safe to run again.
+All setups are safe to run again.
 
 ## Development
 
