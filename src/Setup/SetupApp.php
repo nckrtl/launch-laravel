@@ -12,8 +12,8 @@ use NckRtl\Launch\Setup\App\CopyAppRequestsTask;
 use NckRtl\Launch\Setup\App\CopyAppTestsTask;
 use NckRtl\Launch\Setup\App\CopyFrontendBootstrapTask;
 use NckRtl\Launch\Setup\App\InstallAppReactScaffoldTask;
+use NckRtl\Launch\Setup\App\RegisterAppRoutesTask;
 use NckRtl\Launch\Setup\App\RunSetupAuthTask;
-use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 
 class SetupApp extends Setup
 {
@@ -29,12 +29,12 @@ class SetupApp extends Setup
         RunSetupAuthTask::class,
         CopyAppClassTask::class,
         CopyAppControllersTask::class,
+        RegisterAppRoutesTask::class,
         CopyAppMiddlewareTask::class,
         CopyAppRequestsTask::class,
         InstallAppReactScaffoldTask::class,
         CopyFrontendBootstrapTask::class,
         CopyAppTestsTask::class,
-        GenerateRoutesTask::class,
     ];
 
     /**

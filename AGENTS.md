@@ -29,7 +29,7 @@ Keep tasks idempotent. Check before modifying or registering files, return `fals
 
 - Add `declare(strict_types=1);` to PHP files.
 - Follow Laravel conventions and use explicit types.
-- Use Waymaker attributes in generated controllers and Wayfinder action helpers in React files.
+- Declare generated routes in Laravel route files with dotted names, such as `settings.profile.edit`. Do not add route attributes to controllers. Use Wayfinder action helpers in React files.
 - Keep React output compatible with React 19, Inertia 3, Tailwind CSS 4, Base UI, and VitePlus.
 - Do not add Vue stubs or depend on an unpublished local `launch-ui` registry.
 - Keep the public command surface and README synchronized.

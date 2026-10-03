@@ -6,9 +6,6 @@ namespace {{namespace}}Http\Controllers\Settings;
 
 use {{namespace}}Http\Controllers\Controller;
 use {{namespace}}Http\Requests\Settings\ProfileUpdateRequest;
-use NckRtl\Waymaker\Delete;
-use NckRtl\Waymaker\Get;
-use NckRtl\Waymaker\Patch;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -18,12 +15,9 @@ use Inertia\Response;
 
 class ProfileController extends Controller
 {
-    public static string $routePrefix = 'settings';
-
     /**
      * Show the user's profile settings page.
      */
-    #[Get(uri: 'profile', middleware: 'auth')]
     public function edit(Request $request): Response
     {
         return Inertia::render('settings/profile', [
@@ -38,7 +32,6 @@ class ProfileController extends Controller
     /**
      * Update the user's profile information.
      */
-    #[Patch(uri: 'profile', middleware: 'auth')]
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
         $request->user()?->fill($request->validated());
@@ -49,13 +42,12 @@ class ProfileController extends Controller
 
         $request->user()?->save();
 
-        return to_route('Settings.ProfileController.edit');
+        return to_route('settings.profile.edit');
     }
 
     /**
      * Delete the user's profile.
      */
-    #[Delete(uri: 'profile', middleware: 'auth')]
     public function destroy(Request $request): RedirectResponse
     {
         $request->validate([

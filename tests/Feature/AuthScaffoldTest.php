@@ -399,7 +399,7 @@ describe('Filament auth scaffold integration', function () {
             ->toContain('Two-factor authentication is configured for this account.');
 
         expect($editUserStub)
-            ->not->toContain("route('Settings.SecurityController.edit')")
+            ->not->toContain("route('settings.security.edit')")
             ->not->toContain('Settings\\SecurityController')
             ->not->toContain("Actions\\Action::make('managePasskeys')")
             ->not->toContain("View::make('filament.user-security.passkeys'");

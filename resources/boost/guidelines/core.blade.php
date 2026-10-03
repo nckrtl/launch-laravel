@@ -23,7 +23,9 @@ npm run build
 </code-snippet>
 @endverbatim
 
-The app setup installs Fortify, passkeys, two-factor confirmation, login links, React authentication pages, dashboard and settings pages, Waymaker controllers, and feature tests.
+The app setup installs Fortify, passkeys, two-factor confirmation, login links, React authentication pages, dashboard and settings pages, controllers, and feature tests.
+
+The app setup adds the `dashboard` route to `routes/web.php` and writes the settings routes to `routes/settings.php`. Declare new routes in these route files and give each route a dotted name, such as `settings.profile.edit`.
 
 ### Filament setup
 

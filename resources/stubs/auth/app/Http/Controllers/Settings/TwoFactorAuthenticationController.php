@@ -6,7 +6,6 @@ namespace {{namespace}}Http\Controllers\Settings;
 
 use {{namespace}}Http\Controllers\Controller;
 use {{namespace}}Http\Requests\Settings\TwoFactorAuthenticationRequest;
-use NckRtl\Waymaker\Get;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
@@ -14,8 +13,6 @@ use Laravel\Fortify\Features;
 
 class TwoFactorAuthenticationController extends Controller implements HasMiddleware
 {
-    public static string $routePrefix = 'settings';
-
     /**
      * Get the middleware that should be assigned to the controller.
      */
@@ -29,12 +26,11 @@ class TwoFactorAuthenticationController extends Controller implements HasMiddlew
     /**
      * Show the user's two-factor authentication settings page.
      */
-    #[Get(uri: 'two-factor', name: 'two-factor.show', middleware: ['auth', 'verified'])]
     public function show(TwoFactorAuthenticationRequest $request): RedirectResponse
     {
         $request->ensureStateIsValid();
 
-        return to_route('Settings.SecurityController.edit', [
+        return to_route('settings.security.edit', [
             'continueTwoFactorSetup' => true,
         ]);
     }

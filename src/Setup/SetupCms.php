@@ -13,7 +13,6 @@ use NckRtl\Launch\Setup\Cms\InstallNpmPackagesTask;
 use NckRtl\Launch\Setup\Cms\RegisterFilamentServiceProviderTask;
 use NckRtl\Launch\Setup\Cms\RunFilamentPublishAssetsTask;
 use NckRtl\Launch\Setup\Cms\RunSetupAuthTask;
-use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 
 class SetupCms extends Setup
 {
@@ -31,7 +30,6 @@ class SetupCms extends Setup
         RegisterFilamentServiceProviderTask::class,
         RunFilamentPublishAssetsTask::class,
         InstallNpmPackagesTask::class,
-        GenerateRoutesTask::class,
     ];
 
     /**

@@ -8,6 +8,6 @@ class App
 {
     public static function getRedirectRouteAfterLogin(): string
     {
-        return 'DashboardController.show';
+        return 'dashboard';
     }
 }

@@ -7,7 +7,6 @@ use NckRtl\Launch\Setup\MultiLanguage\ConfigureI18nTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyExamplePageTask;
 use NckRtl\Launch\Setup\MultiLanguage\CopyLangDirectoryTask;
 use NckRtl\Launch\Setup\SetupMultilanguage;
-use NckRtl\Launch\Setup\Tasks\GenerateRoutesTask;
 
 describe('multilanguage scaffold', function () {
     it('ships translations and an example page for the React starterkit', function () {
@@ -28,7 +27,7 @@ describe('multilanguage scaffold', function () {
             ->toContain('useLocale');
     });
 
-    it('configures i18n before generating routes', function () {
+    it('copies translations, the example page, and the i18n configuration', function () {
         $setup = new SetupMultilanguage(new Filesystem);
         $tasks = new ReflectionProperty($setup, 'tasks');
 
@@ -37,7 +36,6 @@ describe('multilanguage scaffold', function () {
                 CopyLangDirectoryTask::class,
                 CopyExamplePageTask::class,
                 ConfigureI18nTask::class,
-                GenerateRoutesTask::class,
             ]);
     });
 

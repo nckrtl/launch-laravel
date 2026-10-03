@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace {{namespace}}Http\Controllers\Settings;
 
 use {{namespace}}Http\Controllers\Controller;
-use NckRtl\Waymaker\Get;
-use NckRtl\Waymaker\Put;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -18,9 +16,6 @@ use Laravel\Passkeys\Passkeys;
 
 class SecurityController extends Controller
 {
-    public static string $routePrefix = 'settings';
-
-    #[Get(uri: 'security', middleware: ['auth', 'verified'])]
     public function edit(Request $request): Response
     {
         $user = $request->user();
@@ -54,7 +49,6 @@ class SecurityController extends Controller
         ]);
     }
 
-    #[Put(uri: 'security', middleware: 'auth')]
     public function update(Request $request): RedirectResponse
     {
         $validated = $request->validate([
