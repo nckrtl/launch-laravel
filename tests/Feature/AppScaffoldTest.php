@@ -13,7 +13,7 @@ describe('app scaffold', function () {
         $packageRoot = dirname(__DIR__, 2);
         $controllers = array_filter(
             (new Filesystem)->allFiles($packageRoot.'/resources/stubs'),
-            fn (SplFileInfo $file): bool => str_contains($file->getPathname(), 'Http/Controllers/'),
+            fn (SplFileInfo $file): bool => str_contains(str_replace('\\', '/', $file->getPathname()), 'Http/Controllers/'),
         );
 
         expect($controllers)->not->toBeEmpty();
