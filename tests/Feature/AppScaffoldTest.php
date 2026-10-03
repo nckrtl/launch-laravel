@@ -8,7 +8,7 @@ use NckRtl\Launch\Setup\App\CopyAppControllersTask;
 use NckRtl\Launch\Setup\App\RegisterAppRoutesTask;
 use NckRtl\Launch\Setup\SetupApp;
 
-describe('app routes', function () {
+describe('app scaffold', function () {
     it('declares routes in route files instead of controller attributes', function () {
         $packageRoot = dirname(__DIR__, 2);
         $controllers = array_filter(
@@ -26,6 +26,15 @@ describe('app routes', function () {
 
         expect("{$packageRoot}/resources/stubs/app/routes/settings.php")->toBeFile()
             ->and("{$packageRoot}/src/Setup/Tasks/GenerateRoutesTask.php")->not->toBeFile();
+    });
+
+    it('ships a Vite configuration without Agentation or artisan runners', function () {
+        $viteConfig = file_get_contents(dirname(__DIR__, 2).'/resources/stubs/app/vite.config.ts');
+
+        expect($viteConfig)
+            ->toContain('defineLaunchConfig(')
+            ->not->toContain('agentation')
+            ->not->toContain('artisan');
     });
 
     it('registers app routes after copying the controllers', function () {
