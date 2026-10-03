@@ -2,6 +2,18 @@
 
 All notable changes to `launch-laravel` will be documented in this file.
 
+## v0.3.10 - 2026-10-03
+
+### What's Changed
+
+* Replace Waymaker with Laravel route files by @nckrtl in https://github.com/nckrtl/launch-laravel/pull/13
+
+### New Contributors
+
+* @nckrtl made their first contribution in https://github.com/nckrtl/launch-laravel/pull/13
+
+**Full Changelog**: https://github.com/nckrtl/launch-laravel/compare/v0.3.9...v0.3.10
+
 ## v0.3.9 - 2026-08-07
 
 **Full Changelog**: https://github.com/nckrtl/launch-laravel/compare/v0.3.8...v0.3.9
